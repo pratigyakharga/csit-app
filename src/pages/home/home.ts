@@ -11,4 +11,8 @@ export class HomePage {
 
   }
 
+  onLoginClick(){
+  		alert("Hello World!");
+  }
+
 }
