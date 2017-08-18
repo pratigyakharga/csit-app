@@ -11,8 +11,8 @@ export class HomePage {
 
   }
 
-  onLoginClick(){
-  		alert("Hello World!");
+  goToMainPage(){
+  		this.navCtrl.push('SearchPage');
   }
 
 }
