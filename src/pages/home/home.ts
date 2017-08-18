@@ -12,7 +12,7 @@ export class HomePage {
   }
 
   onLoginClick(){
-  		alert("Hello World!");
+  		this.navCtrl.push('SearchPage');
   }
 
 }
