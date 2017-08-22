@@ -11,9 +11,7 @@ export class HomePage {
 
   }
 
-
   goToMainPage(){
-
   		this.navCtrl.push('SearchPage');
   }
 
