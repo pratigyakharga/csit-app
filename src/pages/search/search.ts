@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Student} from './../../models/Student';
 
 /**
  * Generated class for the SearchPage page.
@@ -14,6 +15,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'search.html',
 })
 export class SearchPage {
+
+  pratigya = new Student("Pratigya", "Kharga", 24);
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
