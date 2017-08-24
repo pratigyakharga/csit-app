@@ -15,17 +15,22 @@ import {Student} from './../../models/Student';
   templateUrl: 'search.html',
 })
 export class SearchPage {
-	
-  pratigya = new Student("Pratigya", "Kharga", 24);
-  nischal = new Student("Nischal", "Niroula", 22);
-  prashant = new Student("Prashant", "Ghimire", 25);
-  sanjeev = new Student("Sanjeev", "Parajuli", 22);
+
+  students: Student[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+    this.students = [
+      new Student("Pratigya", "Kharga", 24),
+      new Student("Prashant", "Ghimire", 25),
+      new Student("Sanjeev", "Parajuli", 22)
+    ];
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SearchPage');
+    console.log('ionViewDidLoad SearchPage', this.students);
+
   }
 
 
