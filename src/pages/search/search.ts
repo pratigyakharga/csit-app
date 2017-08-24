@@ -15,8 +15,11 @@ import {Student} from './../../models/Student';
   templateUrl: 'search.html',
 })
 export class SearchPage {
-
+	
   pratigya = new Student("Pratigya", "Kharga", 24);
+  nischal = new Student("Nischal", "Niroula", 22);
+  prashant = new Student("Prashant", "Ghimire", 25);
+  sanjeev = new Student("Sanjeev", "Parajuli", 22);
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -24,5 +27,7 @@ export class SearchPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchPage');
   }
+
+
 
 }
