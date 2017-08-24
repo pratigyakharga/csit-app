@@ -22,13 +22,27 @@
     </ion-item>
 
   </ion-list>
-   
-   
-  <button round ion-button 
-  color="primary" 
+
+
+  <button round ion-button
+  color="primary"
   (click)="goToMainPage()">
     Login
   </button>
+
+  <ion-fab right bottom>
+    <button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-instagram"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-youtube"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-github"></ion-icon></button>
+
+    </ion-fab-list>
+  </ion-fab>
+
 </ion-content>
 
 
