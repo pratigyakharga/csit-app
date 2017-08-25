@@ -17,6 +17,7 @@ import {Student} from './../../models/Student';
 export class SearchPage {
 
   students: Student[];
+  selectedStudent: Student;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
@@ -25,6 +26,8 @@ export class SearchPage {
       new Student("Prashant", "Ghimire", 25),
       new Student("Sanjeev", "Parajuli", 22)
     ];
+
+    this.selectedStudent = this.students[1];
 
   }
 

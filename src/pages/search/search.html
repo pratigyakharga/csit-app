@@ -16,8 +16,8 @@
 
   <ion-item>
       <ion-label>Select Student</ion-label>
-      <ion-select interface="popover">
-          <ion-option *ngFor="let student of students" >
+      <ion-select interface="popover" [(ngModel)]="selectedStudent">
+          <ion-option *ngFor="let student of students" [value]="student">
             {{student.firstName}}
           </ion-option>
       </ion-select>
@@ -26,10 +26,10 @@
   <!-- info card for selected student -->
 
   <ion-card>
-    <ion-card-header>Pratigya Kharga</ion-card-header>
+    <ion-card-header>{{selectedStudent.firstName + ' '+ selectedStudent.lastName}}</ion-card-header>
 
     <ion-card-content>
-      <p>Age: 24!</p>
+      <p>Age: {{selectedStudent.age}}!</p>
       <p>Thank you!</p>
     </ion-card-content>
   </ion-card>
