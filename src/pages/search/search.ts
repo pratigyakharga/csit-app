@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Student} from './../../models/Student';
+import {Semester} from "../../models/Semester";
+import {Subject} from "../../models/Subject";
 
 /**
  * Generated class for the SearchPage page.
@@ -34,6 +36,18 @@ export class SearchPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchPage', this.students);
+
+    let firstSem = new Semester();
+    firstSem.name = "First Semester";
+
+    firstSem.subjects = [
+      new Subject("Data Structures"),
+      new Subject("Calculus"),
+    ];
+
+
+    console.log(firstSem);
+
 
   }
 
