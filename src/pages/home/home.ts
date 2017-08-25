@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {AlertController, NavController} from 'ionic-angular';
+
 
 @Component({
   selector: 'page-home',
@@ -7,12 +8,21 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
 
   }
 
   goToMainPage(){
-  		this.navCtrl.push('SearchPage');
+    this.showAlert();
+    this.navCtrl.push('SearchPage');
   }
 
+  showAlert(){
+      let alert = this.alertCtrl.create({
+          title: 'Login Attempt Successful',
+          buttons: ['OK']
+      });
+      alert.present();
+  }
+  
 }
