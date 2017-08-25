@@ -14,20 +14,24 @@
 
 <ion-content padding>
 
-  <!--<ion-item *ngFor="let student of students">-->
-    <!--<p>{{student.firstName + ' '+ student.lastName}}</p>-->
-    <!--<p>{{student.age}}</p>-->
-  <!--</ion-item>-->
-
-  <hr>
-
   <ion-item>
       <ion-label>Select Student</ion-label>
-      <ion-select interface = "popover">
+      <ion-select interface="popover">
           <ion-option *ngFor="let student of students" >
             {{student.firstName}}
           </ion-option>
       </ion-select>
   </ion-item>
+
+  <!-- info card for selected student -->
+
+  <ion-card>
+    <ion-card-header>Pratigya Kharga</ion-card-header>
+
+    <ion-card-content>
+      <p>Age: 24!</p>
+      <p>Thank you!</p>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
