@@ -19,15 +19,48 @@ import {Subject} from "../../models/Subject";
 export class SearchPage {
 
   // variable: type = value;
-  students: Student[];
-  selectedStudent: Student;
+  // students: Student[];
+  // selectedStudent: Student;
+
+  semesters: Semester[];
+  selectedSemester: Semester;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
-    this.students = [
-      new Student("Pratigya", "Kharga", 24),
-      new Student("Prashant", "Ghimire", 25),
-      new Student("Sanjeev", "Parajuli", 22)
+  //   this.students = [
+  //     new Student("Pratigya", "Kharga", 24),
+  //     new Student("Prashant", "Ghimire", 25),
+  //     new Student("Sanjeev", "Parajuli", 22)
+  //   ];
+  //
+  //   //this.selectedStudent = this.students[1];
+  //
+  // }
+  //
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad SearchPage', this.students);
+
+    // let firstSem = new Semester();
+    // firstSem.name = "First Semester";
+    //
+    // firstSem.subjects = [
+    //   new Subject("Data Structures"),
+    //   new Subject("Calculus"),
+    // ];
+    //
+    //
+    // console.log(firstSem);
+
+    this.semesters = [
+      new Semester("First"),
+      new Semester("Second"),
+      new Semester("Third"),
+      new Semester("Fourth"),
+      new Semester("Fifth"),
+      new Semester("Sixth"),
+      new Semester("Seventh"),
+      new Semester("Eighth"),
+
     ];
 
     //this.selectedStudent = this.students[1];
@@ -35,18 +68,7 @@ export class SearchPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SearchPage', this.students);
-
-    let firstSem = new Semester();
-    firstSem.name = "First Semester";
-
-    firstSem.subjects = [
-      new Subject("Data Structures"),
-      new Subject("Calculus"),
-    ];
-
-
-    console.log(firstSem);
+    console.log('ionViewDidLoad SearchPage', this.semesters);
 
 
   }

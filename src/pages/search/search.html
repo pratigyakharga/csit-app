@@ -14,29 +14,55 @@
 
 <ion-content padding>
 
+  <!--<ion-item>-->
+      <!--<ion-label>Select Student</ion-label>-->
+      <!--<ion-select interface="popover" [(ngModel)]="selectedStudent">-->
+          <!--<ion-option *ngFor="let student of students" [value]="student">-->
+            <!--{{student.firstName}}-->
+          <!--</ion-option>-->
+      <!--</ion-select>-->
+  <!--</ion-item>-->
+
+  <!--&lt;!&ndash; info card for selected student &ndash;&gt;-->
+
+  <!--<ion-card *ngIf="selectedStudent">-->
+    <!--<ion-card-header>{{selectedStudent.firstName + ' '+ selectedStudent.lastName}}</ion-card-header>-->
+
+    <!--<ion-card-content>-->
+      <!--<p>Age: {{selectedStudent.age}}!</p>-->
+      <!--<p>Thank you!</p>-->
+    <!--</ion-card-content>-->
+  <!--</ion-card>-->
+  <!---->
+  <!--<ion-card *ngIf="!selectedStudent" >-->
+    <!--<ion-card-header>-->
+      <!--No Student Selected!-->
+    <!--</ion-card-header>-->
+  <!--</ion-card>-->
+
   <ion-item>
-      <ion-label>Select Student</ion-label>
-      <ion-select interface="popover" [(ngModel)]="selectedStudent">
-          <ion-option *ngFor="let student of students" [value]="student">
-            {{student.firstName}}
-          </ion-option>
-      </ion-select>
+    <ion-label>Select Semester</ion-label>
+    <ion-select interface="popover" [(ngModel)]="selectedSemester">
+      <ion-option *ngFor="let semester of semesters" [value]="semester">
+        {{semester.name}}
+      </ion-option>
+    </ion-select>
   </ion-item>
 
   <!-- info card for selected student -->
 
-  <ion-card *ngIf="selectedStudent">
-    <ion-card-header>{{selectedStudent.firstName + ' '+ selectedStudent.lastName}}</ion-card-header>
+  <ion-card *ngIf="selectedSemester">
+    <ion-card-header>{{selectedSemester.name}}</ion-card-header>
 
-    <ion-card-content>
-      <p>Age: {{selectedStudent.age}}!</p>
-      <p>Thank you!</p>
-    </ion-card-content>
+    <!--<ion-card-content>-->
+      <!--<p>Age: {{selectedStudent.age}}!</p>-->
+      <!--<p>Thank you!</p>-->
+    <!--</ion-card-content>-->
   </ion-card>
 
-  <ion-card *ngIf="!selectedStudent" >
+  <ion-card *ngIf="!selectedSemester" >
     <ion-card-header>
-      No Student Selected!
+      No Semester Selected!
     </ion-card-header>
   </ion-card>
 

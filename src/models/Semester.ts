@@ -1,7 +1,7 @@
 import {Subject} from "./Subject";
 
 class Semester {
-  name: string;
+  constructor(public name: string){}
   subjects : Subject[];
 
 }
