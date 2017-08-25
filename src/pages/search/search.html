@@ -25,13 +25,19 @@
 
   <!-- info card for selected student -->
 
-  <ion-card>
+  <ion-card *ngIf="selectedStudent">
     <ion-card-header>{{selectedStudent.firstName + ' '+ selectedStudent.lastName}}</ion-card-header>
 
     <ion-card-content>
       <p>Age: {{selectedStudent.age}}!</p>
       <p>Thank you!</p>
     </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="!selectedStudent" >
+    <ion-card-header>
+      No Student Selected!
+    </ion-card-header>
   </ion-card>
 
 </ion-content>

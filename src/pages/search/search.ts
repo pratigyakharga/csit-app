@@ -16,6 +16,7 @@ import {Student} from './../../models/Student';
 })
 export class SearchPage {
 
+  // variable: type = value;
   students: Student[];
   selectedStudent: Student;
 
@@ -27,7 +28,7 @@ export class SearchPage {
       new Student("Sanjeev", "Parajuli", 22)
     ];
 
-    this.selectedStudent = this.students[1];
+    //this.selectedStudent = this.students[1];
 
   }
 
