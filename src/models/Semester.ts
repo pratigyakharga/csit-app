@@ -1,8 +1,13 @@
 import {Subject} from "./Subject";
 
 class Semester {
-  constructor(public name: string){}
+  name: string;
   subjects : Subject[];
+  constructor (semesterName: string, ){
+    this.name = semesterName;
+  }
+
+  // constructor(public name: string){}
 
 }
 

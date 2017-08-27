@@ -1,15 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {Student} from './../../models/Student';
 import {Semester} from "../../models/Semester";
 import {Subject} from "../../models/Subject";
-
-/**
- * Generated class for the SearchPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -18,52 +10,87 @@ import {Subject} from "../../models/Subject";
 })
 export class SearchPage {
 
-  // variable: type = value;
-  // students: Student[];
-  // selectedStudent: Student;
-
   semesters: Semester[];
   selectedSemester: Semester;
+  subjects: Subject[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
-  //   this.students = [
-  //     new Student("Pratigya", "Kharga", 24),
-  //     new Student("Prashant", "Ghimire", 25),
-  //     new Student("Sanjeev", "Parajuli", 22)
-  //   ];
-  //
-  //   //this.selectedStudent = this.students[1];
-  //
-  // }
-  //
-  // ionViewDidLoad() {
-  //   console.log('ionViewDidLoad SearchPage', this.students);
-
-    // let firstSem = new Semester();
-    // firstSem.name = "First Semester";
-    //
-    // firstSem.subjects = [
-    //   new Subject("Data Structures"),
-    //   new Subject("Calculus"),
-    // ];
-    //
-    //
-    // console.log(firstSem);
-
-    this.semesters = [
-      new Semester("First"),
-      new Semester("Second"),
-      new Semester("Third"),
-      new Semester("Fourth"),
-      new Semester("Fifth"),
-      new Semester("Sixth"),
-      new Semester("Seventh"),
-      new Semester("Eighth"),
+    let firstSem = new Semester("First");
+    firstSem.subjects = [
+      new Subject("Stats"),
+      new Subject("Calculus"),
+      new Subject("FIT"),
+      new Subject("Probability"),
+      new Subject("C Programming "),
+    ];
+    let secondSem = new Semester("Second");
+    secondSem.subjects = [
+      new Subject("Linear Algebra"),
+      new Subject("Data Structure and Algorithms"),
+      new Subject("Discrete Structures"),
+      new Subject("Microprocessor"),
+      new Subject("Digital Logic"),
+    ];
+    let thirdSem = new Semester("Third");
+    thirdSem.subjects = [
+      new Subject("Numerical Methods"),
+      new Subject("Operating Systems"),
+      new Subject("Introduction to Management"),
+      new Subject("Object Oriented Programming"),
+      new Subject("Computer Architecture"),
+    ];
+    let fourthSem = new Semester("Fourth");
+    fourthSem.subjects = [
+      new Subject("Computer Graphics"),
+      new Subject("DBMS"),
+      new Subject("System Analysis and Design"),
+      new Subject("Artificial Intelligence"),
+      new Subject("Theory of Computation"),
 
     ];
+    let fifthSem = new Semester("Fifth");
+    fifthSem.subjects = [
+      new Subject("Computer Networks"),
+      new Subject("Simulation and Modeling"),
+      new Subject("Design and Analysis of Algorithms"),
+      new Subject("Cryptography"),
 
-    //this.selectedStudent = this.students[1];
+
+    ];
+    let sixthSem = new Semester("Sixth");
+    sixthSem.subjects = [
+      new Subject("Software Engineering"),
+      new Subject("Compiler Design and Construction"),
+      new Subject("Web Technologies"),
+      new Subject("Real Time System"),
+      new Subject("Image Processing"),
+    ];
+    let seventhSem = new Semester("Seventh");
+    seventhSem.subjects = [
+      new Subject("Advance DBMS"),
+      new Subject("Internet Technology"),
+      new Subject("Advanced Java Programming"),
+      new Subject("Network and System Administration"),
+    ];
+    let eighthSem = new Semester("Eighth");
+    eighthSem.subjects = [
+      new Subject("Data Warehousing"),
+      new Subject("Internship"),
+      new Subject("Network Security"),
+      new Subject("Cloud Computing"),
+    ];
+
+    this.semesters = [
+      firstSem,
+      secondSem,
+      thirdSem,
+      fourthSem,
+      fifthSem,
+      sixthSem,
+      seventhSem,
+      eighthSem,
+    ];
 
   }
 

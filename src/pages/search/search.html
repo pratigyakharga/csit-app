@@ -14,32 +14,6 @@
 
 <ion-content padding>
 
-  <!--<ion-item>-->
-      <!--<ion-label>Select Student</ion-label>-->
-      <!--<ion-select interface="popover" [(ngModel)]="selectedStudent">-->
-          <!--<ion-option *ngFor="let student of students" [value]="student">-->
-            <!--{{student.firstName}}-->
-          <!--</ion-option>-->
-      <!--</ion-select>-->
-  <!--</ion-item>-->
-
-  <!--&lt;!&ndash; info card for selected student &ndash;&gt;-->
-
-  <!--<ion-card *ngIf="selectedStudent">-->
-    <!--<ion-card-header>{{selectedStudent.firstName + ' '+ selectedStudent.lastName}}</ion-card-header>-->
-
-    <!--<ion-card-content>-->
-      <!--<p>Age: {{selectedStudent.age}}!</p>-->
-      <!--<p>Thank you!</p>-->
-    <!--</ion-card-content>-->
-  <!--</ion-card>-->
-  <!---->
-  <!--<ion-card *ngIf="!selectedStudent" >-->
-    <!--<ion-card-header>-->
-      <!--No Student Selected!-->
-    <!--</ion-card-header>-->
-  <!--</ion-card>-->
-
   <ion-item>
     <ion-label>Select Semester</ion-label>
     <ion-select interface="popover" [(ngModel)]="selectedSemester">
@@ -49,15 +23,16 @@
     </ion-select>
   </ion-item>
 
-  <!-- info card for selected student -->
-
-  <ion-card *ngIf="selectedSemester">
+  <ion-card *ngIf="false && selectedSemester">
     <ion-card-header>{{selectedSemester.name}}</ion-card-header>
-
-    <!--<ion-card-content>-->
-      <!--<p>Age: {{selectedStudent.age}}!</p>-->
-      <!--<p>Thank you!</p>-->
-    <!--</ion-card-content>-->
+    <ion-card-content *ngIf = "selectedSemester.subjects">
+      <ion-list>
+        <!-- loop thru selectedSemester.subjects, in each iteration, set current subject = s -->
+        <ion-item *ngFor="let sub of selectedSemester.subjects">
+          {{sub.name}}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
   </ion-card>
 
   <ion-card *ngIf="!selectedSemester" >
@@ -65,5 +40,13 @@
       No Semester Selected!
     </ion-card-header>
   </ion-card>
+
+  <ion-item *ngIf="selectedSemester">
+    <ion-label>Select Subjects</ion-label>
+    <ion-select interface="popover" [(ngModel)] = "subject">
+      <ion-option *ngFor = "let subject of selectedSemester.subjects">{{subject.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+
 
 </ion-content>
