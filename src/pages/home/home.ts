@@ -17,12 +17,17 @@ export class HomePage {
     this.navCtrl.push('SearchPage');
   }
 
+
   showAlert(){
       let alert = this.alertCtrl.create({
           title: 'Login Attempt Successful',
           buttons: ['OK']
       });
       alert.present();
+
   }
 
+  goToRegisterPage() {
+    this.navCtrl.push('RegisterPage');
+  }
 }
