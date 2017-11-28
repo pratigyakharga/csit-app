@@ -9,6 +9,7 @@ import {Subject} from "../../models/Subject";
   templateUrl: 'search.html',
 })
 export class SearchPage {
+  gotoDisplayPage(){}
 
   semesters: Semester[];
   selectedSemester: Semester;
@@ -92,6 +93,9 @@ export class SearchPage {
       eighthSem,
     ];
 
+  }
+  goToDisplayPage(){
+    this.navCtrl.push('DisplayPage');
   }
 
   ionViewDidLoad() {
