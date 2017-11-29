@@ -15,15 +15,30 @@
 
 <ion-content padding>
   <form>
-    Full name:<br>
-    <input type="text" name="name"><br>
-    E-mail:<br>
-    <input type="email" name="username"><br>
-    Password:<br>
-    <input type="password" name="psw">
-    Re-enter Password:<br>
-    <input type="password" name="psw">
-    <input type="submit" value="Register">
+    <ion-list>
+      <ion-item>
+        <ion-label floating> Name </ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating> Email </ion-label>
+        <ion-input type="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating> Re-enter Password</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+    <br> <br>
+    <button ion-button large Round color="Primary">Register</button>
+
   </form>
 
 </ion-content>
