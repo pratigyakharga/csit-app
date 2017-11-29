@@ -21,5 +21,7 @@ export class PreBoardPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PreBoardPage');
   }
-
+  onBackClick (){
+    this.navCtrl.setRoot('SearchPage');
+  }
 }

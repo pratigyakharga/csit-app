@@ -21,5 +21,7 @@ export class FinalExamPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad FinalExamPage');
   }
-
+  onBackClick (){
+    this.navCtrl.setRoot('SearchPage');
+  }
 }

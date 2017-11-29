@@ -14,7 +14,6 @@ import {SplashScreen} from '@ionic-native/splash-screen';
   declarations: [
     MyApp,
     HomePage,
-    QuestionsPage,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +23,6 @@ import {SplashScreen} from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     HomePage,
-    QuestionsPage,
   ],
   providers: [
     StatusBar,

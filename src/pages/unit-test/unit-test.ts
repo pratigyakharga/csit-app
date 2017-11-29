@@ -22,4 +22,7 @@ export class UnitTestPage {
     console.log('ionViewDidLoad UnitTestPage');
   }
 
+  onBackClick (){
+    this.navCtrl.setRoot('SearchPage');
+  }
 }

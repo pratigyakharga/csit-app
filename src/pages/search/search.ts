@@ -95,7 +95,7 @@ export class SearchPage {
 
   }
   goToDisplayPage(){
-    this.navCtrl.push('DisplayPage');
+    this.navCtrl.setRoot('QuestionsPage');
   }
 
   ionViewDidLoad() {

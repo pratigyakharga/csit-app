@@ -21,5 +21,7 @@ export class MidTermPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MidTermPage');
   }
-
+  onBackClick (){
+    this.navCtrl.setRoot('SearchPage');
+  }
 }
