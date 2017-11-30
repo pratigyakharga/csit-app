@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { QuestionsPage } from '../pages/questions/questions';
-
+import {Parse} from 'parse';
 @Component({
   templateUrl: 'app.html'
 })
@@ -33,6 +33,9 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      Parse.initialize("glF2OU2o555Hceg8J3Ml", "lCvBBj7LEOBrKQqX6Qlm");
+      Parse.serverURL = "https://csit-app.herokuapp.com/parse";
+      console.log(Parse, 'parse');
     });
   }
 

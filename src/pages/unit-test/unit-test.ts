@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {Parse} from 'parse';
 
 /**
  * Generated class for the UnitTestPage page.
@@ -22,11 +23,24 @@ export class UnitTestPage {
     console.log('ionViewDidLoad UnitTestPage');
   }
 
-  onBackClick (){
+  onBackClick() {
     this.navCtrl.setRoot('SearchPage');
   }
 
-  test(){
-    console.log("Hello I'm Test Button");
+  test() {
+    const Question = Parse.Object.extend('Questions');
+    const query = new Parse.Query(Question);
+    query.equalTo('term', 'unit');
+    query.find({
+      success: function (questions) {
+        questions.forEach(function (question) {
+          console.log('Question is : ',question.toJSON());
+        });
+      },
+      error: function (err) {
+        console.log(err);
+      }
+    });
+
   }
 }
