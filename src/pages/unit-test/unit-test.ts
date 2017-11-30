@@ -25,4 +25,8 @@ export class UnitTestPage {
   onBackClick (){
     this.navCtrl.setRoot('SearchPage');
   }
+
+  test(){
+    console.log("Hello I'm Test Button");
+  }
 }
