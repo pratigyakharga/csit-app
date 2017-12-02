@@ -1,9 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
-import {UnitTestPage} from '../unit-test/unit-test'
-import {MidTermPage} from '../mid-term/mid-term'
-import {PreBoardPage} from '../pre-board/pre-board'
-import {FinalExamPage} from '../final-exam/final-exam'
+import {Component} from '@angular/core';
+import {IonicPage, NavController} from 'ionic-angular';
+
 /**
  * Generated class for the QuestionsPage tabs.
  *
@@ -18,12 +15,13 @@ import {FinalExamPage} from '../final-exam/final-exam'
 })
 export class QuestionsPage {
 
-  unitTestRoot = 'UnitTestPage'
-  midTermRoot = 'MidTermPage'
-  preBoardRoot = 'PreBoardPage'
-  finalExamRoot = 'FinalExamPage'
+  unitTestRoot = 'UnitTestPage';
+  midTermRoot = 'MidTermPage';
+  preBoardRoot = 'PreBoardPage';
+  finalExamRoot = 'FinalExamPage';
 
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController) {
+  }
 
 }
