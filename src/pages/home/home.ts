@@ -30,4 +30,8 @@ export class HomePage {
   goToRegisterPage() {
     this.navCtrl.push('RegisterPage');
   }
+
+  goToUploadPage() {
+    this.navCtrl.push('UploadPage');
+  }
 }
