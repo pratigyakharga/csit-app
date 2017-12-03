@@ -39,7 +39,9 @@ export class UnitTestPage {
     query.equalTo('term', 'unit');
     query.find().then( (questions)=> {
       this.questions = questions.map((q)=> {
-        return q.toJSON();
+        var question = q.toJSON();
+        question.body = question.body.split("~");
+        return question;
       });
       console.log('questions loaded', this.questions);
     });
