@@ -1,4 +1,4 @@
-import {ApplicationRef, ChangeDetectorRef, Component, NgZone} from '@angular/core';
+import {ChangeDetectorRef, Component, NgZone} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Parse} from 'parse';
 
@@ -18,7 +18,7 @@ export class UnitTestPage {
 
   questions: any[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public zone: NgZone, public ref : ChangeDetectorRef) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.questions = [];
   }
 
@@ -37,10 +37,11 @@ export class UnitTestPage {
     const Question = Parse.Object.extend('Questions');
     const query = new Parse.Query(Question);
     query.equalTo('term', 'unit');
-    query.find().then(function (questions) {
-      console.log('here');
-      this.questions = [1, 2, 3];
-      this.ref.detectChanges();
+    query.find().then( (questions)=> {
+      this.questions = questions.map((q)=> {
+        return q.toJSON();
+      });
+      console.log('questions loaded', this.questions);
     });
 
   }
