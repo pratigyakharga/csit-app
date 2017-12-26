@@ -8,23 +8,12 @@ import {AlertController, NavController} from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController) {
 
   }
 
   goToMainPage(){
-    this.showAlert();
     this.navCtrl.push('SearchPage');
-  }
-
-
-  showAlert(){
-      let alert = this.alertCtrl.create({
-          title: 'Login Attempt Successful',
-          buttons: ['OK']
-      });
-      alert.present();
-
   }
 
   goToRegisterPage() {

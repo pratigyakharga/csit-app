@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Parse } from 'parse';
-/**
- * Generated class for the RegisterPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -24,6 +18,8 @@ export class RegisterPage {
 
   registerUser(){
     console.log("Register Button Clicked");
+
+
     var user = new Parse.User();
     user.set("username", "pratigya");
     user.set("password", "admin123");
@@ -36,6 +32,10 @@ export class RegisterPage {
        console.log(user,error);
       }
     });
+    
+
+
+
   }
 
 }
