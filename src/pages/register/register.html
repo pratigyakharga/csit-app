@@ -11,28 +11,27 @@
   <form>
     <ion-list>
       <ion-item>
-        <ion-label floating> Name </ion-label>
-        <ion-input type="text"> ng-model="username" </ion-input>
+        <ion-label floating> Username</ion-label>
+        <ion-input name="username" type="text" [(ngModel)]="username"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label floating> Email </ion-label>
-        <ion-input type="email"> ng-model="email" </ion-input>
+        <ion-label floating> Email</ion-label>
+        <ion-input name="email" type="email" [(ngModel)]="email"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label floating>Password</ion-label>
-        <ion-input type="password">ng-model="password"</ion-input>
+        <ion-input name="password" type="password" [(ngModel)]="password"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label floating> Re-enter Password</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input name="password2" type="password" [(ngModel)]="password2"></ion-input>
       </ion-item>
     </ion-list>
-    <br> <br>
-    <button ion-button large Round color="Primary" ng-click="login(username,password)"
-    (click)="registerUser()">Register</button>
+
+    <button ion-button color="primary" (click)="registerUser()">Register</button>
 
   </form>
 
