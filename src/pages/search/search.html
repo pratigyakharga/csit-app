@@ -16,24 +16,12 @@
 
   <ion-item>
     <ion-label>Select Semester</ion-label>
-    <ion-select interface="popover" [(ngModel)]="selectedSemester">
+    <ion-select interface="popover" [(ngModel)]="selectedSemester" (ionChange)="onSemesterChange(selectedSemester)">
       <ion-option *ngFor="let semester of semesters" [value]="semester">
         {{semester.name}}
       </ion-option>
     </ion-select>
   </ion-item>
-
-  <ion-card *ngIf="false && selectedSemester">
-    <ion-card-header>{{selectedSemester.name}}</ion-card-header>
-    <ion-card-content *ngIf = "selectedSemester.subjects">
-      <ion-list>
-        <!-- loop thru selectedSemester.subjects, in each iteration, set current subject = s -->
-        <ion-item *ngFor="let sub of selectedSemester.subjects">
-          {{sub.name}}
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
 
   <ion-card *ngIf="!selectedSemester" >
     <ion-card-header>
@@ -43,8 +31,8 @@
 
   <ion-item *ngIf="selectedSemester">
     <ion-label>Select Subjects</ion-label>
-    <ion-select interface="popover" [(ngModel)] = "subject">
-      <ion-option *ngFor = "let subject of selectedSemester.subjects">{{subject.name}}</ion-option>
+    <ion-select interface="popover" [(ngModel)] = "selectedSubject">
+      <ion-option *ngFor = "let selectedSubject of selectedSemester.subjects">{{selectedSubject.name}}</ion-option>
     </ion-select>
   </ion-item>
 

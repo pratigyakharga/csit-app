@@ -13,6 +13,7 @@ export class SearchPage {
 
   semesters: Semester[];
   selectedSemester: Semester;
+  selectedSubject: Subject;
   subjects: Subject[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -95,7 +96,9 @@ export class SearchPage {
 
   }
   goToDisplayPage(){
-    this.navCtrl.setRoot('QuestionsPage');
+    console.log('search display : ', this.selectedSemester, this.selectedSubject);
+
+    //this.navCtrl.setRoot('QuestionsPage');
   }
 
   ionViewDidLoad() {
@@ -105,5 +108,8 @@ export class SearchPage {
   }
 
 
-
+  onSemesterChange(selectedSemester: Semester) {
+    console.log('changed to : ',selectedSemester);
+    this.selectedSubject = undefined;
+  }
 }
