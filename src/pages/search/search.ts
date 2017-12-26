@@ -96,17 +96,17 @@ export class SearchPage {
 
   }
   goToDisplayPage(){
-    console.log('search display : ', this.selectedSemester, this.selectedSubject);
-
-    //this.navCtrl.setRoot('QuestionsPage');
+    console.log('search display : ', this.selectedSemester, this.selectedSubject, localStorage);
+    if(this.selectedSemester && this.selectedSubject) {
+      localStorage.SELECTED_SUBJECT = this.selectedSubject;
+      localStorage.SELECTED_SEMESTER = this.selectedSemester.name;
+      this.navCtrl.setRoot('QuestionsPage');
+    }
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchPage', this.semesters);
-
-
   }
-
 
   onSemesterChange(selectedSemester: Semester) {
     console.log('changed to : ',selectedSemester);
