@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {AlertController, NavController} from 'ionic-angular';
-
+import {NavController, AlertController} from 'ionic-angular';
+import {Parse} from 'parse';
 
 @Component({
   selector: 'page-home',
@@ -8,12 +8,34 @@ import {AlertController, NavController} from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  username: string;
+  password: string;
 
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
+    this.username = "pratigya";
+    this.password = "admin123";
   }
 
   goToMainPage(){
-    this.navCtrl.push('SearchPage');
+    Parse.User.logIn(this.username, this.password, {
+      success: (response) => {
+        console.log(response, 'success');
+        this.navCtrl.push('SearchPage');
+      },
+      error: (err)=> {
+        console.log(err, 'error');
+        this.showLoginError();
+      }
+    });
+  }
+
+  showLoginError() {
+    let alert = this.alertCtrl.create({
+      title: 'Login failed',
+      subTitle: 'Incorrect ID or password. Please provide correct login credentials.',
+      buttons: ['Ok']
+    });
+    alert.present();
   }
 
   goToRegisterPage() {
