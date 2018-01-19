@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, NgZone} from '@angular/core';
+import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Parse} from 'parse';
 
