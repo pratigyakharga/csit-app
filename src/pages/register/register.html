@@ -1,40 +1,53 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>register</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>Sign Up</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <form>
-    <ion-list>
-      <ion-item>
-        <ion-label floating> Username</ion-label>
-        <ion-input name="username" type="text" [(ngModel)]="username"></ion-input>
-      </ion-item>
+    <form>
+        <ion-list>
+            <h3>Join Us Now</h3>
+            <h4>Don't study hard,study smart</h4><br><br><br>
+            <ion-item>
+                <ion-label fixed>
+                    Username:
+                </ion-label>
+                <ion-input name="username" type="text" [(ngModel)]="username"></ion-input>
+            </ion-item>
 
-      <ion-item>
-        <ion-label floating> Email</ion-label>
-        <ion-input name="email" type="email" [(ngModel)]="email"></ion-input>
-      </ion-item>
+            <ion-item>
+                <ion-label fixed>
+                   Email:
+                </ion-label>
+                <ion-input name="email" type="email" [(ngModel)]="email"></ion-input>
+            </ion-item>
 
-      <ion-item>
-        <ion-label floating>Password</ion-label>
-        <ion-input name="password" type="password" [(ngModel)]="password"></ion-input>
-      </ion-item>
+            <ion-item>
+                <ion-label fixed>
+                    password:
+                </ion-label>
+                <ion-input name="password" type="password" [(ngModel)]="password"></ion-input>
+            </ion-item>
 
-      <ion-item>
-        <ion-label floating> Re-enter Password</ion-label>
-        <ion-input name="password2" type="password" [(ngModel)]="password2"></ion-input>
-      </ion-item>
-    </ion-list>
+            <ion-item>
+                <ion-label fixed>
+                   Re-enter:
+                </ion-label>
+                <ion-input name="password2" type="password" [(ngModel)]="password2"></ion-input>
+            </ion-item>
+        </ion-list>
 
-    <button ion-button color="primary" (click)="registerUser()">Register</button>
+        <button ion-button color="danger" (click)="registerUser()">Sign Up</button>
+      
 
-  </form>
-
+    </form>
+<p> <a class="signup">Already have an account?</a>
+    <a href="home.html"class="after-signup"(click)="goToRegisterPage()">
+    Sign In Now
+  </a></p>
+    
 </ion-content>
-
-
