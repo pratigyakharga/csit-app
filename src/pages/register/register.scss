@@ -1,0 +1,78 @@
+page-register {
+    .toolbar-background-ios {
+        background-color: #0b5345 !important;
+    }
+    .toolbar-title-ios {
+        color: #fff !important;
+        font-family: 'Source Code Pro';
+    }
+    .button-inner {
+        color: #fff !important;
+        font-family: 'Source Code Pro';
+    }
+    .fixed-content {
+        background-image: url(https://cdn.pixabay.com/photo/2016/03/09/09/14/books-1245690_960_720.jpg);
+        background-size: cover;
+        overflow: hidden;
+        background-position: center center;
+        background-attachment: fixed;
+        width: 100%;
+    }
+    .scroll-content {
+        background-color: #000;
+        opacity: 0.6;
+    }
+    .item-block {
+        border-radius: 30px;
+        margin-top: 10px;
+    }
+    .list-ios {
+        margin-top: 40%;
+    }
+    h3 {
+        margin-top: 25px !important;
+        font-size: 50px !important;
+        margin-left: 10%;
+        color: #fffdfe;
+        font-family: 'Source Code Pro';
+    }
+    h4 {
+        color: #e8e5e1;
+        margin-top: -10px;
+        font-size: 14px;
+        text-align: center;
+        margin-left: -5%;
+        font-family: 'Source Code Pro';
+    }
+    .item-block {
+        width: 80%;
+        margin-left: 10%;
+    }
+    .button-ios-danger {
+        border-radius: 30px;
+        margin-left: 35%;
+        margin-top: -5%;
+        
+    }
+    .input-wrapper{
+      font-family: 'Source Code Pro';
+    }
+    .button-ios-danger:hover{
+      background-color:#000;
+      
+    }
+    
+p{
+  color:#fff !important;
+  font-size:16px;
+  margin-left:10%;
+}
+.signup{
+  color:#a13232 !important;
+}
+a{
+  color:#fff !important;
+}
+
+    
+}

@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+    <button color="light" ion-button icon-only (click)="onBackClick()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </button>
+    <ion-title>Final Exam</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h3>Final Content</h3>
+  <ion-list>
+    <ion-item *ngFor="let question of questions">
+      {{question.year}} <br>
+
+        <li *ngFor="let b of question.body">{{b}}</li>
+
+    </ion-item>
+  </ion-list>
+</ion-content>

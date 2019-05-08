@@ -1,0 +1,62 @@
+<ion-header>
+    <ion-navbar color="base">
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+      
+    </button>
+        <ion-title> <ion-icon ios="ios-home" md="md-home"></ion-icon></ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="Head" padding>
+    <ion-list></ion-list>
+
+    <ion-list class="front-page">
+        <h3>Old Is Gold</h3>
+        <h4>Not all classrooms have four walls</h4><br><br><br>
+        <ion-item>
+
+            <ion-label fixed> <ion-icon  class="icon"ios="ios-contact" md="md-contact"></ion-icon></ion-label>
+            <ion-input [(ngModel)]="username" type="text"></ion-input>
+        </ion-item>
+        <br>
+        <ion-item>
+            <ion-label fixed><ion-icon ios="ios-lock" md="md-lock"></ion-icon></ion-label>
+            <ion-input [(ngModel)]="password" type="password"></ion-input>
+        </ion-item>
+
+    </ion-list>
+
+
+
+    <button round ion-button color="danger" (click)="goToMainPage()">
+    Login
+  </button><br>
+  <p><a href="#">Forget password?</a></p>
+  
+  
+    <p> <a href="#" class="signup">Don't have an account?</a>
+    <a class="after-signup"(click)="goToRegisterPage()">
+    Sign up
+  </a></p>
+
+    <ion-fab right bottom>
+        <button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
+        <ion-fab-list side="left">
+            <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+            <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+            <button ion-fab><ion-icon name="logo-instagram"></ion-icon></button>
+            <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+            <button ion-fab><ion-icon name="logo-youtube"></ion-icon></button>
+            <button ion-fab><ion-icon name="logo-github"></ion-icon></button>
+
+        </ion-fab-list>
+    </ion-fab>
+
+    <br>
+
+    <!-- <button round ion-button color="primary" (click)="goToUploadPage()">
+    Upload
+  </button> -->
+
+</ion-content>
