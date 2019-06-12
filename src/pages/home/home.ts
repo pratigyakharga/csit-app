@@ -12,7 +12,7 @@ export class HomePage {
   password: string;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
-    this.username = "pratigya";
+    this.username = "gatekeeper";
     this.password = "admin123";
   }
 
@@ -20,7 +20,13 @@ export class HomePage {
     Parse.User.logIn(this.username, this.password, {
       success: (response) => {
         console.log(response, 'success');
-        this.navCtrl.push('SearchPage');
+        let role = response.get('role');
+        console.log('the user role is : ', role);
+        if(role === 'admin'){
+          this.navCtrl.push('AdminPortalPage');
+        } else {
+          this.navCtrl.push('SearchPage');
+        }
       },
       error: (err)=> {
         console.log(err, 'error');
