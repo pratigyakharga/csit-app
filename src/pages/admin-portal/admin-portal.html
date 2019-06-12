@@ -15,4 +15,19 @@
 
 <ion-content padding>
 
+  <ion-item>
+    <ion-label>Semester</ion-label>
+    <ion-input [(ngModel)]="semester"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Subject</ion-label>
+    <ion-input [(ngModel)]="subject"></ion-input>
+  </ion-item>
+
+  <button round ion-button (click)="choosePdf()">Choose PDF</button>
+  <br>
+  <button round ion-button (click)="uploadPdf()" *ngIf="!pdfChoosen">Upload PDF</button>
+
 </ion-content>
+

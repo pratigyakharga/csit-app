@@ -15,11 +15,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AdminPortalPage {
 
+  subject: string;
+  semester: string;
+  pdfChoosen: boolean;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AdminPortalPage');
+  }
+
+  choosePdf(){
+    console.log('will choose PDF');
+  }
+
+  uploadPdf(){
+    console.log('will upload pdf');
   }
 
 }
