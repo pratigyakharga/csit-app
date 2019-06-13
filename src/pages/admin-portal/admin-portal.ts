@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FileChooser } from '@ionic-native/file-chooser/ngx';
 
 /**
  * Generated class for the AdminPortalPage page.
@@ -19,7 +20,7 @@ export class AdminPortalPage {
   semester: string;
   pdfChoosen: boolean;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private fileChooser: FileChooser) {
   }
 
   ionViewDidLoad() {
@@ -28,6 +29,9 @@ export class AdminPortalPage {
 
   choosePdf(){
     console.log('will choose PDF');
+    this.fileChooser.open()
+    .then(uri => console.log(uri))
+    .catch(e => console.log(e));
   }
 
   uploadPdf(){
