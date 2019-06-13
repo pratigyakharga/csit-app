@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Semester} from "../../models/Semester";
 import {Subject} from "../../models/Subject";
 import {Parse} from 'parse';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @IonicPage()
 @Component({
@@ -20,7 +21,7 @@ export class SearchPage {
   year: string = '2019';
   Question: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private iab: InAppBrowser) {
 
     this.Question = Parse.Object.extend('Questions');
 
@@ -142,5 +143,7 @@ export class SearchPage {
   showPdf (question){
     let pdfUrl = question.get('pdfUrl');
     console.log('this is the PDF url : ', pdfUrl);
+    const googleDocLink = 'http://docs.google.com/viewer?url=';
+    const browser = this.iab.create(googleDocLink + pdfUrl);
   }
 }

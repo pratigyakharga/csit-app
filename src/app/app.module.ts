@@ -10,6 +10,7 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
 import { FileChooser } from '@ionic-native/file-chooser/ngx';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FileChooser } from '@ionic-native/file-chooser/ngx';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FileChooser
+    FileChooser,
+    InAppBrowser
   ]
 })
 export class AppModule {
