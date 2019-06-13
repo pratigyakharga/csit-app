@@ -16,10 +16,10 @@ import {Parse} from 'parse';
 })
 export class AdminPortalPage {
 
-  subject: string;
-  semester: string;
-  term: string;
-  year: number;
+  subject: string = 'Calculus';
+  semester: string = 'First';
+  term: string = 'Mid';
+  year: string = '2019';
   pdfChoosen: boolean;
   uploadFile: File;
 
@@ -60,7 +60,7 @@ export class AdminPortalPage {
       term: this.term,
       subject: this.subject,
       semester: this.semester,
-      year: parseInt(this.year+""),
+      year: parseInt(this.year),
       type: 'pdf'
     };
     
