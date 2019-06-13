@@ -18,6 +18,8 @@ export class AdminPortalPage {
 
   subject: string;
   semester: string;
+  term: string;
+  year: number;
   pdfChoosen: boolean;
   uploadFile: File;
 
@@ -42,10 +44,35 @@ export class AdminPortalPage {
     .save()
     .then((saved)=> {
       console.log(' saved ',saved);
+
+      this.saveQuestion(saved._url);
+
     })
     .catch((err)=> {
       console.log('error : ', err);
     });
+  }
+
+  saveQuestion(url){
+
+    let QuestionData = {
+      pdfUrl: url,
+      term: this.term,
+      subject: this.subject,
+      semester: this.semester,
+      year: parseInt(this.year+"")
+    };
+    
+    let Question = Parse.Object.extend('Questions');
+    let question = new Question();
+    question.save(QuestionData)
+    .then((savedQuestion)=> {
+      console.log('saved question: ', savedQuestion);
+    })
+    .catch(err => {
+      console.log('save error in question');
+    });
+
   }
 
 }
