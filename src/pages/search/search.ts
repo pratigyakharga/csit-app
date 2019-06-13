@@ -108,11 +108,6 @@ export class SearchPage {
   }
   goToDisplayPage(){
     console.log('search display : ', this.selectedSemester, this.selectedSubject, this.term, this.year);
-    // if(this.selectedSemester && this.selectedSubject) {
-    //   localStorage.SELECTED_SUBJECT = this.selectedSubject;
-    //   localStorage.SELECTED_SEMESTER = this.selectedSemester.name;
-    //   this.navCtrl.setRoot('QuestionsPage');
-    // }
 
     let query = new Parse.Query(this.Question);
 
@@ -120,6 +115,7 @@ export class SearchPage {
     query.equalTo('term', this.term);
     query.equalTo('subject', this.selectedSubject);
     query.equalTo('semester', this.selectedSemester.name);
+    query.descending('createdAt');
 
     let results = query.first().then(res => {
       console.log(res);

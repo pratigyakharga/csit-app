@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FileChooser } from '@ionic-native/file-chooser/ngx';
 import {Parse} from 'parse';
+import {AlertController} from 'ionic-angular';
 /**
  * Generated class for the AdminPortalPage page.
  *
@@ -23,7 +24,7 @@ export class AdminPortalPage {
   pdfChoosen: boolean;
   uploadFile: File;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private fileChooser: FileChooser) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private fileChooser: FileChooser, private alertCtr: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -69,6 +70,14 @@ export class AdminPortalPage {
     question.save(QuestionData)
     .then((savedQuestion)=> {
       console.log('saved question: ', savedQuestion);
+
+      let alert = this.alertCtr.create({
+        title: 'Success',
+        subTitle: 'Question upload successfully!',
+        buttons: ['Ok']
+      });
+      alert.present();
+
     })
     .catch(err => {
       console.log('save error in question');
