@@ -35,9 +35,11 @@
     <ion-input [(ngModel)]="year" type="number"></ion-input>
   </ion-item>
 
-  <input type="file" (change)="choosePdf($event)" accept="application/pdf">
-  <br>
-  <button round ion-button (click)="uploadPdf()" *ngIf="uploadFile">Upload PDF</button>
-
+  <div style="text-align: center" padding>
+    <input type="file" (change)="choosePdf($event)" accept="application/pdf">
+    <br>
+    <button round ion-button (click)="uploadPdf()" *ngIf="uploadFile">Upload Question</button>  
+  </div>
+  
 </ion-content>
 
