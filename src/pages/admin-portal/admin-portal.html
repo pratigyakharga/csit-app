@@ -25,9 +25,9 @@
     <ion-input [(ngModel)]="subject"></ion-input>
   </ion-item>
 
-  <button round ion-button (click)="choosePdf()">Choose PDF</button>
+  <input type="file" (change)="choosePdf($event)" accept="application/pdf">
   <br>
-  <button round ion-button (click)="uploadPdf()" *ngIf="!pdfChoosen">Upload PDF</button>
+  <button round ion-button (click)="uploadPdf()" *ngIf="uploadFile">Upload PDF</button>
 
 </ion-content>
 
