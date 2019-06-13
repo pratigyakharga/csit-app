@@ -14,10 +14,10 @@ export class SearchPage {
 
   semesters: Semester[];
   selectedSemester: Semester;
-  selectedSubject: Subject;
+  selectedSubject: any;
   subjects: Subject[];
-  term: string;
-  year: string;
+  term: string = 'Mid';
+  year: string = '2019';
   Question: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -100,6 +100,10 @@ export class SearchPage {
       eighthSem,
     ];
 
+    // auto populators
+    this.selectedSemester = firstSem;
+    this.selectedSubject = 'Calculus';
+
   }
   goToDisplayPage(){
     console.log('search display : ', this.selectedSemester, this.selectedSubject, this.term, this.year);
@@ -115,15 +119,14 @@ export class SearchPage {
     query.equalTo('term', this.term);
     query.equalTo('subject', this.selectedSubject);
     query.equalTo('semester', this.selectedSemester.name);
-    query.limit(1);
 
-    let results = query.find().then(res => {
+    let results = query.first().then(res => {
       console.log(res);
+      this.showPdf(res)
     })
     .catch( err => {
       console.log(err);
-    })
-
+    });
 
   }
 
@@ -134,5 +137,10 @@ export class SearchPage {
   onSemesterChange(selectedSemester: Semester) {
     console.log('changed to : ',selectedSemester);
     this.selectedSubject = undefined;
+  }
+
+  showPdf (question){
+    let pdfUrl = question.get('pdfUrl');
+    console.log('this is the PDF url : ', pdfUrl);
   }
 }
