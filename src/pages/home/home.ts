@@ -12,7 +12,7 @@ export class HomePage {
   password: string;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
-    this.username = "gatekeeper";
+    this.username = "pratigya";
     this.password = "admin123";
   }
 

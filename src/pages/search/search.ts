@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Semester} from "../../models/Semester";
 import {Subject} from "../../models/Subject";
+import {Parse} from 'parse';
 
 @IonicPage()
 @Component({
@@ -15,8 +16,13 @@ export class SearchPage {
   selectedSemester: Semester;
   selectedSubject: Subject;
   subjects: Subject[];
+  term: string;
+  year: string;
+  Question: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+    this.Question = Parse.Object.extend('Questions');
 
     let firstSem = new Semester("First");
     firstSem.subjects = [
@@ -96,12 +102,29 @@ export class SearchPage {
 
   }
   goToDisplayPage(){
-    console.log('search display : ', this.selectedSemester, this.selectedSubject, localStorage);
-    if(this.selectedSemester && this.selectedSubject) {
-      localStorage.SELECTED_SUBJECT = this.selectedSubject;
-      localStorage.SELECTED_SEMESTER = this.selectedSemester.name;
-      this.navCtrl.setRoot('QuestionsPage');
-    }
+    console.log('search display : ', this.selectedSemester, this.selectedSubject, this.term, this.year);
+    // if(this.selectedSemester && this.selectedSubject) {
+    //   localStorage.SELECTED_SUBJECT = this.selectedSubject;
+    //   localStorage.SELECTED_SEMESTER = this.selectedSemester.name;
+    //   this.navCtrl.setRoot('QuestionsPage');
+    // }
+
+    let query = new Parse.Query(this.Question);
+
+    query.equalTo('year', parseInt(this.year));
+    query.equalTo('term', this.term);
+    query.equalTo('subject', this.selectedSubject);
+    query.equalTo('semester', this.selectedSemester.name);
+    query.limit(1);
+
+    let results = query.find().then(res => {
+      console.log(res);
+    })
+    .catch( err => {
+      console.log(err);
+    })
+
+
   }
 
   ionViewDidLoad() {

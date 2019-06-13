@@ -23,17 +23,21 @@
     </ion-select>
   </ion-item>
 
-  <ion-card *ngIf="!selectedSemester" >
-    <ion-card-header>
-      Select a Semester
-    </ion-card-header>
-  </ion-card>
-
   <ion-item *ngIf="selectedSemester">
     <ion-label>Select Subjects</ion-label>
     <ion-select interface="popover" [(ngModel)] = "selectedSubject">
       <ion-option *ngFor = "let selectedSubject of selectedSemester.subjects">{{selectedSubject.name}}</ion-option>
     </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Term</ion-label>
+    <ion-input [(ngModel)]="term"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Year</ion-label>
+    <ion-input [(ngModel)]="year" type="number"></ion-input>
   </ion-item>
 
   <button round ion-button

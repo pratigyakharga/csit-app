@@ -60,7 +60,8 @@ export class AdminPortalPage {
       term: this.term,
       subject: this.subject,
       semester: this.semester,
-      year: parseInt(this.year+"")
+      year: parseInt(this.year+""),
+      type: 'pdf'
     };
     
     let Question = Parse.Object.extend('Questions');
