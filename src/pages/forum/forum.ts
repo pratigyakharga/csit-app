@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import {} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController} from 'ionic-angular';
+import {NewForumPostModalPage} from '../new-forum-post-modal/new-forum-post-modal';
 /**
  * Generated class for the ForumPage page.
  *
@@ -15,11 +16,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ForumPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  posts: any[];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private modelCtrl: ModalController) {
+    this.posts = [
+      {title: 'How do I make the app?'},
+      {title: 'Please help me pass. :('},
+      {title: 'I did good on my test.'}
+    ];
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ForumPage');
+  }
+
+  openAddPostModal(){
+    let modal = this.modelCtrl.create(NewForumPostModalPage, {});
+    modal.present();
   }
 
 }
