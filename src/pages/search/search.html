@@ -24,7 +24,7 @@
   </ion-item>
 
   <ion-item *ngIf="selectedSemester">
-    <ion-label>Select Subjects</ion-label>
+    <ion-label>Select Subject</ion-label>
     <ion-select interface="popover" [(ngModel)] = "selectedSubject">
       <ion-option *ngFor = "let selectedSubject of selectedSemester.subjects">{{selectedSubject.name}}</ion-option>
     </ion-select>
@@ -44,6 +44,15 @@
           color="primary"
           (click)="goToDisplayPage()">
     Search
+  </button>
+
+
+  <br><br><br>
+
+  <button round ion-button
+          color="primary"
+          (click)="goToForumPage()">
+    Forum
   </button>
 
 

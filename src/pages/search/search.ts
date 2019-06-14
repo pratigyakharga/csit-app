@@ -117,7 +117,7 @@ export class SearchPage {
     query.equalTo('semester', this.selectedSemester.name);
     query.descending('createdAt');
 
-    let results = query.first().then(res => {
+    query.first().then(res => {
       console.log(res);
       this.showPdf(res)
     })
@@ -140,6 +140,10 @@ export class SearchPage {
     let pdfUrl = question.get('pdfUrl');
     console.log('this is the PDF url : ', pdfUrl);
     const googleDocLink = 'http://docs.google.com/viewer?url=';
-    const browser = this.iab.create(googleDocLink + pdfUrl);
+    this.iab.create(googleDocLink + pdfUrl);
+  }
+
+  goToForumPage (){
+    this.navCtrl.push('ForumPage');
   }
 }
