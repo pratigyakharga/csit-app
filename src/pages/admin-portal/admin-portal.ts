@@ -23,7 +23,6 @@ export class AdminPortalPage {
   year: string = '2019';
   pdfChoosen: boolean;
   uploadFile: File;
-  complete: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private fileChooser: FileChooser, private alertCtr: AlertController) {
   }
@@ -71,11 +70,7 @@ export class AdminPortalPage {
     question.save(QuestionData)
     .then((savedQuestion)=> {
       console.log('saved question: ', savedQuestion);
-      this.complete = true;
-
-      
-
-
+      this.showSuccessDialog();
     })
     .catch(err => {
       console.log('save error in question');
@@ -83,7 +78,7 @@ export class AdminPortalPage {
 
   }
 
-  showDiag (){
+  showSuccessDialog(){
     let alert = this.alertCtr.create({
       title: 'Success',
       subTitle: 'Question upload successfully!',
