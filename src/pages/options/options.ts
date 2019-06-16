@@ -22,4 +22,22 @@ export class OptionsPage {
     console.log('ionViewDidLoad OptionsPage');
   }
 
+  gotoQuestionsPage(){
+    this.navCtrl.push('QuestionsPage');
+  }
+
+  gotoNotesPage(){
+    this.navCtrl.push('NotesPage');
+  }
+
+  gotoSolutionsPage(){
+    this.navCtrl.push('SolutionsPage');
+  }
+
+  gotoForumPage(){
+    this.navCtrl.push('ForumPage');
+  }
+
+  
+
 }
