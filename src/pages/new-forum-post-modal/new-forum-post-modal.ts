@@ -16,10 +16,9 @@ import { Parse } from 'parse';
 })
 export class NewForumPostModalPage {
 
-  title: string;
-  content: string;
-
-
+  title: string = 'hello';
+  content: string = 'world';
+  
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
 

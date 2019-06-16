@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import {} from 'ionic-angular';
 import { IonicPage, NavController, NavParams, ModalController} from 'ionic-angular';
-import {NewForumPostModalPage} from '../new-forum-post-modal/new-forum-post-modal';
+import {Parse} from 'parse';
+
 /**
  * Generated class for the ForumPage page.
  *
@@ -19,11 +20,14 @@ export class ForumPage {
   posts: any[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private modelCtrl: ModalController) {
-    this.posts = [
-      {title: 'How do I make the app?'},
-      {title: 'Please help me pass. :('},
-      {title: 'I did good on my test.'}
-    ];
+
+    const ForumPost = Parse.Object.extend('ForumPost');
+    let query = new Parse.Query(ForumPost);
+    query.find()
+    .then( posts => {
+      let plainPosts = posts.map( p => p.attributes);
+      this.posts = plainPosts;
+    });
   }
 
   ionViewDidLoad() {
