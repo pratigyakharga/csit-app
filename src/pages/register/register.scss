@@ -36,4 +36,10 @@ page-register {
   p {
       color: #fff;
   }
+  
+  ion-label[fixed] {
+    width: 50px;
+    min-width: 50px;
+    max-width: 50px;
+  }
 }
