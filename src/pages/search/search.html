@@ -7,46 +7,42 @@
 
 <ion-header>
   <ion-navbar color="base">
-  <button ion-button menuToggle>
-    <ion-icon name="menu"></ion-icon>
-  </button>
-  <ion-title>
-    Search
-  </ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Search
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-  <ion-item>
-    <ion-label>Select Semester</ion-label>
-    <ion-select interface="popover" [(ngModel)]="selectedSemester" (ionChange)="onSemesterChange(selectedSemester)">
-      <ion-option *ngFor="let semester of semesters" [value]="semester">
-        {{semester.name}}
-      </ion-option>
-    </ion-select>
-  </ion-item>
+  <ion-list no-lines>
 
-  <ion-item *ngIf="selectedSemester">
-    <ion-label>Select Subject</ion-label>
-    <ion-select interface="popover" [(ngModel)] = "selectedSubject">
-      <ion-option *ngFor = "let selectedSubject of selectedSemester.subjects">{{selectedSubject.name}}</ion-option>
-    </ion-select>
-  </ion-item>
+    <ion-item>
+      <ion-label>Select Semester</ion-label>
+      <ion-select interface="popover" [(ngModel)]="selectedSemester" (ionChange)="onSemesterChange(selectedSemester)">
+        <ion-option *ngFor="let semester of semesters" [value]="semester">
+          {{semester.name}}
+        </ion-option>
+      </ion-select>
+    </ion-item>
 
+    <br>
 
-  <!-- hide -->
-  <ion-item *ngIf="0">
-    <ion-label>Term</ion-label>
-    <ion-input [(ngModel)]="term"></ion-input>
-  </ion-item>
+    <ion-item *ngIf="selectedSemester">
+      <ion-label>Select Subject</ion-label>
+      <ion-select interface="popover" [(ngModel)]="selectedSubject">
+        <ion-option *ngFor="let selectedSubject of selectedSemester.subjects">{{selectedSubject.name}}</ion-option>
+      </ion-select>
+    </ion-item>
 
-  <!-- hide -->
-  <ion-item *ngIf="0">
-    <ion-label>Year</ion-label>
-    <ion-input [(ngModel)]="year" type="number"></ion-input>
-  </ion-item>
+  </ion-list>
 
-  <button color="base" margin-vertical ion-button full round (click)="gotoOptionsPage()">Search</button>
+  <button color="base" margin-vertical ion-button full round icon-end (click)="gotoOptionsPage()">
+    Find Resources
+    <ion-icon name="search" item-end></ion-icon>
+  </button>
 
 </ion-content>
