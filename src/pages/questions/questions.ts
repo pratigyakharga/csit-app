@@ -60,11 +60,11 @@ export class QuestionsPage {
     .catch( err => {
       console.log(err);
     });
-
+    
   }
 
   showPdf (question){
-    let pdfUrl = question.get('pdfUrl');
+    let pdfUrl = question.pdfUrl;
     console.log('this is the PDF url : ', pdfUrl);
     const googleDocLink = 'http://docs.google.com/viewer?url=';
     this.iab.create(googleDocLink + pdfUrl);
