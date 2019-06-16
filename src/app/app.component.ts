@@ -15,7 +15,7 @@ export class MyApp {
 
   rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, action?: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
@@ -24,7 +24,8 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Questions', component: QuestionsPage },
-      { title: 'Forum', component: 'ForumPage'}
+      { title: 'Forum', component: 'ForumPage'},
+      { title: 'Logout', component: 'HomePage'}
     ];
 
   }
@@ -44,6 +45,12 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    this.nav.setRoot(page.component, {}, {}, ()=> {
+      Parse.User.logOut().then(()=> {
+        console.log('user logged out');
+      }).catch(()=> {
+        console.log('user logout fail');
+      });
+    });
   }
 }

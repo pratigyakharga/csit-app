@@ -146,4 +146,8 @@ export class SearchPage {
   goToForumPage (){
     this.navCtrl.push('ForumPage');
   }
+
+  gotoOptionsPage (){
+    this.navCtrl.push('OptionsPage');
+  }
 }

@@ -23,9 +23,9 @@ export class HomePage {
         let role = response.get('role');
         console.log('the user role is : ', role);
         if(role === 'admin'){
-          this.navCtrl.push('AdminPortalPage');
+          this.navCtrl.setRoot('AdminPortalPage');
         } else {
-          this.navCtrl.push('SearchPage');
+          this.navCtrl.setRoot('SearchPage');
         }
       },
       error: (err)=> {
