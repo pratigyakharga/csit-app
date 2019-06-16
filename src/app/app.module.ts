@@ -23,7 +23,7 @@ import { NewForumPostModalPage } from '../pages/new-forum-post-modal/new-forum-p
     BrowserModule,
     IonicModule.forRoot(MyApp, {
       backButtonText: ''
-    }),
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
