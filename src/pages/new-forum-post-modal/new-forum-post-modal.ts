@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { Parse } from 'parse';
 
 /**
  * Generated class for the NewForumPostModalPage page.
@@ -15,6 +16,10 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class NewForumPostModalPage {
 
+  title: string;
+  content: string;
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
 
@@ -24,6 +29,33 @@ export class NewForumPostModalPage {
 
   dismiss (){
     this.viewCtrl.dismiss();
+  }
+
+  createAPost() {
+    const ForumPost = Parse.Object.extend('ForumPost');
+    let forumPost = new ForumPost();
+
+    try {
+      let author = Parse.User.current();
+      let username = author.attributes.username;
+      console.log('current author : ', author);
+      forumPost
+        .save({
+          title: this.title,
+          content: this.content,
+          author: username
+        })
+        .then(savedPost => {
+          console.log(savedPost, 'saved post');
+          this.dismiss();
+        })
+        .catch(err => {
+          console.log('error caught : ', err);
+        });
+    } catch (err) {
+      console.log('cannot find username : ', err);
+    }
+
   }
 
 }

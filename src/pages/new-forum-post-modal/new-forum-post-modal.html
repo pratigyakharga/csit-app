@@ -26,17 +26,17 @@
 
     <ion-item no-padding>
       <ion-label stacked>Title</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input [(ngModel)]="title"></ion-input>
     </ion-item>
 
     <ion-item no-padding>
       <ion-label stacked>Description</ion-label>
-      <ion-textarea [(ngModel)]="body"></ion-textarea>
+      <ion-textarea [(ngModel)]="content"></ion-textarea>
     </ion-item>
 
     <br>
-    
-    <button ion-button block round color="base" (click)="createAPost">Create</button>
+
+    <button ion-button block round color="base" (click)="createAPost()">Create</button>
 
   </ion-list>
 
