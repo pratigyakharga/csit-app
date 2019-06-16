@@ -1,8 +1,4 @@
-page-forum {
-    ion-item {
-        border: 1px solid red;
-    }
-
+page-forum-post-details {
     .name-avatar{
         background: map-get($colors, base);
         color: #fff;
@@ -15,5 +11,14 @@ page-forum {
         text-align: center;
         line-height: $dim;
         border-radius: 50%;
+    }
+
+    .list-comment ion-item{
+        min-height: 25px !important;
+        height: 25px;
+    }
+
+    ion-item span {
+        font-weight: bold;
     }
 }
