@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Parse } from 'parse';
-import {HomePage} from "../home/home";
+import { HomePage } from "../home/home";
 
 @IonicPage()
 @Component({
@@ -11,21 +11,21 @@ import {HomePage} from "../home/home";
 
 export class RegisterPage {
 
-  username : string;
-  email : string;
-  password : string;
-  password2 : string;
+  username: string;
+  email: string;
+  password: string;
+  password2: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl : AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
 
-  registerUser(){
+  registerUser() {
     console.log("Register Button Clicked");
-    if(this.password !== this.password2){
+    if (this.password !== this.password2) {
       this.showPasswordMismatchError();
       return;
     }
@@ -35,7 +35,7 @@ export class RegisterPage {
     user.set("password", this.password);
     user.set("email", this.email);
     user.signUp(null, {
-      success: (user) =>{
+      success: (user) => {
         console.log(user, 'success register');
         this.navCtrl.push(HomePage);
       },
@@ -55,13 +55,17 @@ export class RegisterPage {
     alert.present();
   }
 
-    showRegisterFailError(error){
+  showRegisterFailError(error) {
     console.log(error, 'error register');
-      let alert = this.alertCtrl.create({
-        title: 'Registration failed',
-        subTitle: 'Your account couldn\'t be registered. Please provide different username or email.',
-        buttons: ['Ok']
-      });
-      alert.present();
+    let alert = this.alertCtrl.create({
+      title: 'Registration failed',
+      subTitle: 'Your account couldn\'t be registered. Please provide different username or email.',
+      buttons: ['Ok']
+    });
+    alert.present();
+  }
+
+  gotoHomePage (){
+    this.navCtrl.popToRoot();
   }
 }

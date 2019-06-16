@@ -19,15 +19,16 @@ export class QuestionsPage {
   questions: any[];
   Question = Parse.Object.extend('Questions');
   term: any;
-  termMap = {
-    firstTerm: 'First Term',
-    midTerm: 'Mid Term',
-    preBoard: 'Pre Board',
-    final: 'Final (TU)',
-  };
+  termMap: any;
 
   constructor(public navCtrl: NavController, private iab: InAppBrowser, private loadingCtrl: LoadingController) {
     // first time load
+    this.termMap = {
+      firstTerm: 'First Term',
+      midTerm: 'Mid Term',
+      preBoard: 'Pre Board',
+      final: 'Final (TU)',
+    };
     this.term = 'firstTerm';
     this.updateQuestions();
   }
