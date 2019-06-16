@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {IonicPage, NavController, LoadingController} from 'ionic-angular';
-import {Parse} from 'parse';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, LoadingController } from 'ionic-angular';
+import { Parse } from 'parse';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 /**
  * Generated class for the QuestionsPage tabs.
@@ -15,7 +15,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
   templateUrl: 'questions.html'
 })
 export class QuestionsPage {
-  
+
   questions: any[];
   Question = Parse.Object.extend('Questions');
   term: any;
@@ -27,12 +27,12 @@ export class QuestionsPage {
   };
 
   constructor(public navCtrl: NavController, private iab: InAppBrowser, private loadingCtrl: LoadingController) {
-     // first time load
+    // first time load
     this.term = 'firstTerm';
     this.updateQuestions();
   }
 
-  updateQuestions(){
+  updateQuestions() {
     // load q according to term
     console.log(' will load for ', this.term);
 
@@ -54,16 +54,16 @@ export class QuestionsPage {
 
     query.find().then(response => {
       console.log('response questions : ', response);
-      this.questions = response.map( q => q.attributes);
+      this.questions = response.map(q => q.attributes);
       loader.dismiss();
     })
-    .catch( err => {
-      console.log(err);
-    });
-    
+      .catch(err => {
+        console.log(err);
+      });
+
   }
 
-  showPdf (question){
+  showPdf(question) {
     let pdfUrl = question.pdfUrl;
     console.log('this is the PDF url : ', pdfUrl);
     const googleDocLink = 'http://docs.google.com/viewer?url=';

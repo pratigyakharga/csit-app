@@ -1,101 +1,41 @@
-    page-home {
-        .fixed-content {
-            background-image: url(https://cdn.pixabay.com/photo/2016/03/09/09/14/books-1245690_960_720.jpg);
-            background-size: cover;
-            overflow: hidden;
-            background-position: center center;
-            background-attachment: fixed;
-            width: 100%;
-        }
-        .scroll-content {
-            background-color: #000;
-            opacity: 0.6;
-        }
-        .list-md {
-            margin-top: 45% !important;
-        }
-        h3 {
-            margin-top: 25px !important;
-            font-size: 50px !important;
-            margin-left: 10%;
-            color: #fffdfe;
-            font-family:'Source Code Pro';
-        }
-        h4 {
-            color: #e8e5e1;
-            margin-top: -10px;
-            font-size: 14px;
-            text-align: center;
-            margin-left: -5%;
-            font-family:'Source Code Pro';
-        }
-        .front-page{
-          margin-top:180px;
-        }
-        .item-inner {
-            bottom: 20% !important;
-        }
-        .item {
-            border-radius: 30px;
-            background-color:#FFF5F5 !important;
-            border:6px #000 !important;
-            
-            
-        }
-        .input-cover{
-          padding:-5px -5px 0px -5px !important;
-        }
-        .item-block {
-            width: 100%;
-        }
-        form,
-        input,
-        optgroup,
-        select {
-            margin-left: 26% !important;
-        }
-        .item-md {
-            margin-top: -2%;
-        }
-        .label-md[floating] {
-            width: 30%;
-           
-        }
-        ion-input,
-        ion-textarea {
-            width: 30%; margin-left:-70px;
-            
-        }
-        .icon{
-          color:black;
+page-home {
+  .fixed-content {
+    background-image: url(https://cdn.pixabay.com/photo/2016/03/09/09/14/books-1245690_960_720.jpg);
+    background-size: cover;
+    overflow: hidden;
+    background-position: center center;
+    background-attachment: fixed;
+    width: 100%;
+  }
 
+  .scroll-content {
+    padding-top: 150px !important;
+    background-color: #000;
+    opacity: 0.8;
+  }
 
-        }
-         .item-block{
-          width:85%;
-          margin-left:20px;
-        }
-       .button-ios-danger{
-          margin-left:120px;
-        }
-        a{
-          color:#fff !important;
-          font-size:16px;
-          margin-left:100px !important;
-          width:20%;
-        }
-.signup{
-  margin-left:52px !important;
-  color:#a13232 !important;
+  h3,
+  h5 {
+    color: #fff;
+    text-align: center;
+    margin: 0;
+  }
+
+  h3 {
+    font-size: 3rem;
+  }
+
+  h5 {
+    margin-bottom: 30px;
+  }
+
+  .item-input {
+    border-radius: 20px;
+  }
+
+  ion-label[fixed] {
+    width: 50px;
+    min-width: 50px;
+    max-width: 50px;
+  }
 }
- .after-signup {
-  margin-left:10px !important;
-}
-.ion-md-home:before{
-  margin-left:-100px;
-}
-.toolbar-title-ios{
-  font-size:2.4rem;
-  margin-left:-130px;
-} 
-    }
