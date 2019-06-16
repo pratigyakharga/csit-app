@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FileChooser } from '@ionic-native/file-chooser/ngx';
 import {Parse} from 'parse';
 import {AlertController} from 'ionic-angular';
 /**
@@ -24,7 +23,7 @@ export class AdminPortalPage {
   pdfChoosen: boolean;
   uploadFile: File;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private fileChooser: FileChooser, private alertCtr: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtr: AlertController) {
   }
 
   ionViewDidLoad() {
