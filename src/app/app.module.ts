@@ -21,7 +21,9 @@ import { NewForumPostModalPage } from '../pages/new-forum-post-modal/new-forum-p
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      backButtonText: ''
+    }),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
