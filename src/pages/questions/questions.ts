@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController} from 'ionic-angular';
-
+import {IonicPage, NavController, LoadingController} from 'ionic-angular';
+import {Parse} from 'parse';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 /**
  * Generated class for the QuestionsPage tabs.
  *
@@ -16,6 +17,7 @@ import {IonicPage, NavController} from 'ionic-angular';
 export class QuestionsPage {
   
   questions: any[];
+  Question = Parse.Object.extend('Questions');
   term: any;
   termMap = {
     firstTerm: 'First Term',
@@ -24,18 +26,48 @@ export class QuestionsPage {
     final: 'Final (TU)',
   };
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private iab: InAppBrowser, private loadingCtrl: LoadingController) {
+     // first time load
     this.term = 'firstTerm';
-
-    // need to load this from server
-    this.questions = [
-      {title : 'some title'}
-    ];
+    this.updateQuestions();
   }
 
-  setTerm(term){
+  updateQuestions(){
     // load q according to term
-    console.log(term, 'invoked!');
+    console.log(' will load for ', this.term);
+
+    const loader = this.loadingCtrl.create({
+      content: 'Loading ...',
+      duration: 3000
+    });
+    loader.present();
+
+    let query = new Parse.Query(this.Question);
+    let selectedSubject = 'Calculus';
+    let selectedSemester = 'First';
+
+    // query.equalTo('year', parseInt(this.year));
+    query.equalTo('term', this.term);
+    query.equalTo('subject', selectedSubject);
+    query.equalTo('semester', selectedSemester);
+    query.descending('createdAt');
+
+    query.find().then(response => {
+      console.log('response questions : ', response);
+      this.questions = response.map( q => q.attributes);
+      loader.dismiss();
+    })
+    .catch( err => {
+      console.log(err);
+    });
+
+  }
+
+  showPdf (question){
+    let pdfUrl = question.get('pdfUrl');
+    console.log('this is the PDF url : ', pdfUrl);
+    const googleDocLink = 'http://docs.google.com/viewer?url=';
+    this.iab.create(googleDocLink + pdfUrl);
   }
 
 }
