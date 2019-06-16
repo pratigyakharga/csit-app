@@ -24,7 +24,7 @@ export class UnitTestPage {
   }
 
   onBackClick() {
-    this.navCtrl.setRoot('SearchPage');
+    this.navCtrl.push('OptionsPage');
   }
 
   loadUnitTestQuestions() {
