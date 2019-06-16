@@ -31,7 +31,7 @@ export class ForumPage {
   }
 
   openAddPostModal(){
-    let modal = this.modelCtrl.create(NewForumPostModalPage, {});
+    let modal = this.modelCtrl.create('NewForumPostModalPage', {});
     modal.present();
   }
 

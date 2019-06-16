@@ -9,17 +9,36 @@
   <ion-navbar>
 
     <ion-buttons end>
-        <button ion-button icon-only side="right" (click)="dismiss()">
-            <ion-icon name="close"></ion-icon>
-        </button>
+      <button ion-button icon-only side="right" (click)="dismiss()">
+        <ion-icon name="close" color="base"></ion-icon>
+      </button>
     </ion-buttons>
 
-    <ion-title>NewForumPostModal</ion-title>
+    <ion-title>Create a Post</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <h3>hello new post</h3>
+
+  <ion-list no-lines>
+
+    <ion-item no-padding>
+      <ion-label stacked>Title</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item no-padding>
+      <ion-label stacked>Description</ion-label>
+      <ion-textarea [(ngModel)]="body"></ion-textarea>
+    </ion-item>
+
+    <br>
+    
+    <button ion-button block round color="base" (click)="createAPost">Create</button>
+
+  </ion-list>
+
+
 </ion-content>

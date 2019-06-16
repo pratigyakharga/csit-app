@@ -16,8 +16,7 @@ import { NewForumPostModalPage } from '../pages/new-forum-post-modal/new-forum-p
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    NewForumPostModalPage
+    HomePage
   ],
   imports: [
     BrowserModule,
@@ -28,8 +27,7 @@ import { NewForumPostModalPage } from '../pages/new-forum-post-modal/new-forum-p
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    NewForumPostModalPage
+    HomePage
   ],
   providers: [
     StatusBar,
