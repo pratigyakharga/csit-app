@@ -14,14 +14,15 @@ import {IonicPage, NavController} from 'ionic-angular';
   templateUrl: 'questions.html'
 })
 export class QuestionsPage {
-
-  unitTestRoot = 'UnitTestPage';
-  midTermRoot = 'MidTermPage';
-  preBoardRoot = 'PreBoardPage';
-  finalExamRoot = 'FinalExamPage';
-
+  
+  questions: any[];
+  term: any;
 
   constructor(public navCtrl: NavController) {
+    this.term = 'midTerm';
+    this.questions = [
+      {title : 'some title'}
+    ];
   }
 
 }

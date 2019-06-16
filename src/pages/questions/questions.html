@@ -16,7 +16,7 @@
 
 <ion-content padding>
     <div padding>
-        <ion-segment [(ngModel)]="pet">
+        <ion-segment [(ngModel)]="term">
         <ion-segment-button value="firstTerm">
             First Term
         </ion-segment-button>
@@ -31,4 +31,12 @@
         </ion-segment-button>                    
         </ion-segment>
     </div>
+
+
+    <ion-list *ngFor="let q of questions">
+        <ion-item>
+            {{q.title}}
+        </ion-item>
+    </ion-list>
+
 </ion-content>
