@@ -25,4 +25,8 @@ page-forum-post-details {
   ion-footer ion-icon {
     padding: 0 15px;
   }
+
+  ion-icon{
+      z-index: 1000;
+  }
 }
