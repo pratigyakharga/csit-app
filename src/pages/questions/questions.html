@@ -16,7 +16,7 @@
 
 <ion-content padding>
     <div padding>
-        <ion-segment [(ngModel)]="term" (ionChange)="updateQuestions()">
+        <ion-segment color="base" [(ngModel)]="term" (ionChange)="updateQuestions()">
             <ion-segment-button value="firstTerm">
                 {{termMap.firstTerm}}
             </ion-segment-button>
@@ -34,6 +34,7 @@
 
     <ion-list>
         <ion-item *ngFor="let q of questions" (click)=showPdf(q)>
+            <ion-icon name="arrow-forward" item-end></ion-icon>
             {{q.subject + ' ' + q.year}}
         </ion-item>
     </ion-list>
