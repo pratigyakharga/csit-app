@@ -11,7 +11,6 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 
 import { FileChooser } from '@ionic-native/file-chooser/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-import { NewForumPostModalPage } from '../pages/new-forum-post-modal/new-forum-post-modal';
 
 @NgModule({
   declarations: [
