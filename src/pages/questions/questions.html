@@ -8,7 +8,7 @@
 <ion-header>
 
         <ion-navbar>
-          <ion-title>Questions</ion-title>
+          <ion-title>Questions for {{termMap[term]}}</ion-title>
         </ion-navbar>
       
       </ion-header>
@@ -16,22 +16,21 @@
 
 <ion-content padding>
     <div padding>
-        <ion-segment [(ngModel)]="term">
-        <ion-segment-button value="firstTerm">
-            First Term
-        </ion-segment-button>
-        <ion-segment-button value="midTerm">
-            Mid Term
-        </ion-segment-button>
-        <ion-segment-button value="preBoard">
-            Pre Board
-        </ion-segment-button>
-        <ion-segment-button value="final">
-            Final (TU)
-        </ion-segment-button>                    
+        <ion-segment [(ngModel)]="term" (ionChange)="setTerm(term)">
+            <ion-segment-button value="firstTerm">
+                {{termMap.firstTerm}}
+            </ion-segment-button>
+            <ion-segment-button value="midTerm">
+                {{termMap.midTerm}}
+            </ion-segment-button>
+            <ion-segment-button value="preBoard">
+                {{termMap.preBoard}}
+            </ion-segment-button>
+            <ion-segment-button value="final">
+                {{termMap.final}}
+            </ion-segment-button>                    
         </ion-segment>
     </div>
-
 
     <ion-list *ngFor="let q of questions">
         <ion-item>

@@ -17,12 +17,25 @@ export class QuestionsPage {
   
   questions: any[];
   term: any;
+  termMap = {
+    firstTerm: 'First Term',
+    midTerm: 'Mid Term',
+    preBoard: 'Pre Board',
+    final: 'Final (TU)',
+  };
 
   constructor(public navCtrl: NavController) {
-    this.term = 'midTerm';
+    this.term = 'firstTerm';
+
+    // need to load this from server
     this.questions = [
       {title : 'some title'}
     ];
+  }
+
+  setTerm(term){
+    // load q according to term
+    console.log(term, 'invoked!');
   }
 
 }
