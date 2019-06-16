@@ -1,24 +1,28 @@
 page-forum-post-details {
-    .name-avatar{
-        background: map-get($colors, base);
-        color: #fff;
-        text-transform: capitalize;
-        $dim: 50px;
-        font-size: 18px;
-        height: $dim;
-        width: $dim;
-        display: block;
-        text-align: center;
-        line-height: $dim;
-        border-radius: 50%;
-    }
+  .name-avatar {
+    background: map-get($colors, base);
+    color: #fff;
+    text-transform: capitalize;
+    $dim: 50px;
+    font-size: 18px;
+    height: $dim;
+    width: $dim;
+    display: block;
+    text-align: center;
+    line-height: $dim;
+    border-radius: 50%;
+  }
 
-    .list-comment ion-item{
-        min-height: 25px !important;
-        height: 25px;
-    }
+  .list-comment ion-item {
+    min-height: 30px !important;
+    height: 30px;
+  }
 
-    ion-item span {
-        font-weight: bold;
-    }
+  ion-item span {
+    font-weight: bold;
+  }
+
+  ion-footer ion-icon {
+    padding: 0 15px;
+  }
 }

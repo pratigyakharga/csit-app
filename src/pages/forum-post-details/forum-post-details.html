@@ -14,32 +14,38 @@
 
 
 <ion-content padding>
- 
-  <ion-item text-wrap>
-    <ion-thumbnail item-start>
-      <span class="name-avatar">
-        {{post.author.charAt(0)}}
-      </span>
-    </ion-thumbnail>
-    <strong>{{post.title}}</strong>
-    <br>
-    {{post.content}}
-  </ion-item>
 
-
-  <ion-list no-lines class="list-comment">
-    <ion-item *ngFor="let c of comments">
-      <span>@{{c.user}}</span>: {{c.body}}
+  <ion-list>
+    <ion-item text-wrap>
+      <ion-thumbnail item-start>
+        <span class="name-avatar">
+          {{post?.author?.charAt(0)}}
+        </span>
+      </ion-thumbnail>
+      <strong>{{post?.title}}</strong>
+      <br>
+      {{post?.content}}
     </ion-item>
+
+    <ion-list-header>
+      {{likes}} Upvotes
+      <ion-icon (click)="incrementLikes()" ios="md-happy" md="md-happy" item-end></ion-icon>
+    </ion-list-header>
   </ion-list>
 
+    <ion-list no-lines class="list-comment">
+      <ion-item *ngFor="let c of comments">
+        <span>@{{c.user}}</span>: {{c.body}}
+      </ion-item>
+    </ion-list>
 
-  <ion-footer>
-    <ion-item>
-      <ion-input type="text" placeholder="Enter comment"></ion-input>
-      <ion-icon name="send" color="base" item-end></ion-icon>
-    </ion-item>
-  </ion-footer>
+
+    <ion-footer>
+      <ion-item>
+        <ion-input type="text" placeholder="Enter comment" [(ngModel)]="newComment"></ion-input>
+        <ion-icon name="send" color="base" item-end (click)="submitComment()"></ion-icon>
+      </ion-item>
+    </ion-footer>
 
 
 </ion-content>

@@ -15,31 +15,37 @@ import { Parse } from 'parse';
 })
 export class ForumPostDetailsPage {
 
+  postId: any;
   post: any;
   comments: any;
-  likes: any;
+  newComment: string;
+  likes: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.post = {
-      author: "pratigya",
-      content: "But... Your user class should not be user queryable. This should be locked down in the class-level permissions section of the data browser, and only Cloud Code using the Master Key should be able to query users.",
-      createdAt: "2019-06-16T17:29:21.416Z",
-      objectId: "ER5ZWjE39H",
-      title: "hello comment",
-      updatedAt: "2019-06-16T18:45:37.031Z",
-    };
-    // this.post = navParams.data;
+    this.postId = this.navParams.data.objectId;
+    console.log(this.postId);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ForumPostDetailsPage');
+    this.loadPost();
     this.loadComments();
+  }
+
+  loadPost() {
+    const ForumPost = Parse.Object.extend('ForumPost');
+    const query = new Parse.Query(ForumPost);
+    query.get(this.postId)
+      .then(post => {
+        this.post = post.toJSON();
+        this.likes = this.post.likeCount;
+      });
   }
 
   loadComments() {
     const ForumComment = Parse.Object.extend('ForumComment');
     let query = new Parse.Query(ForumComment);
-    query.equalTo('postId', this.post.objectId);
+    query.equalTo('postId', this.postId);
     query.ascending('createdAt');
     query.find()
       .then(comments => {
@@ -50,4 +56,44 @@ export class ForumPostDetailsPage {
       });
   }
 
+  submitComment() {
+
+    try {
+      let comment = {
+        user: Parse.User.current().attributes.username,
+        body: this.newComment,
+        postId: this.post.objectId
+      };
+
+      const ForumComment = Parse.Object.extend('ForumComment');
+      const forumComment = new ForumComment();
+      forumComment
+        .save(comment)
+        .then(savedComment => {
+          console.log('saved comment : ', savedComment);
+          this.comments.push(savedComment.toJSON());
+          this.newComment = '';
+        })
+        .catch(err => {
+          console.log(' error while saving : ', err);
+        });
+    } catch (err) {
+      console.log('error while making comment : ', err);
+    }
+
+  }
+
+  incrementLikes() {
+    this.likes += 1;
+    const ForumPost = Parse.Object.extend('ForumPost');
+    const query = new Parse.Query(ForumPost);
+    query.get(this.post.objectId)
+      .then(post => {
+        post.increment('likeCount');
+        return post.save();
+      })
+      .then(saved => {
+        console.log('incremented likes', saved);
+      });
+  }
 }
