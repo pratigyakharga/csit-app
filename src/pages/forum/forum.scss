@@ -1,0 +1,19 @@
+page-forum {
+    ion-item {
+        border: 1px solid red;
+    }
+
+    .name-avatar{
+        background: map-get($colors, base);
+        color: #fff;
+        text-transform: capitalize;
+        $dim: 50px;
+        font-size: 18px;
+        height: $dim;
+        width: $dim;
+        display: block;
+        text-align: center;
+        line-height: $dim;
+        border-radius: 50%;
+    }
+}

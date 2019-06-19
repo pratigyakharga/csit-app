@@ -1,6 +1,42 @@
-<ion-tabs>
-    <ion-tab [root]="unitTestRoot" tabTitle="Unit test" tabIcon="home"></ion-tab>
-    <ion-tab [root]="midTermRoot" tabTitle="Mid term" tabIcon="star"></ion-tab>
-    <ion-tab [root]="preBoardRoot" tabTitle="Pre board" tabIcon="text"></ion-tab>
-    <ion-tab [root]="finalExamRoot" tabTitle="Final exam" tabIcon="stats"></ion-tab>
-</ion-tabs>
+
+<!--
+  Generated template for the NotesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+        <ion-navbar>
+          <ion-title>Questions for {{termMap[term]}}</ion-title>
+        </ion-navbar>
+      
+      </ion-header>
+      
+
+<ion-content padding>
+    <div padding>
+        <ion-segment color="base" [(ngModel)]="term" (ionChange)="updateQuestions()">
+            <ion-segment-button value="firstTerm">
+                {{termMap.firstTerm}}
+            </ion-segment-button>
+            <ion-segment-button value="midTerm">
+                {{termMap.midTerm}}
+            </ion-segment-button>
+            <ion-segment-button value="preBoard">
+                {{termMap.preBoard}}
+            </ion-segment-button>
+            <ion-segment-button value="final">
+                {{termMap.final}}
+            </ion-segment-button>                    
+        </ion-segment>
+    </div>
+
+    <ion-list>
+        <ion-item *ngFor="let q of questions" (click)=showPdf(q)>
+            <ion-icon name="arrow-forward" item-end></ion-icon>
+            {{q.subject + ' ' + q.year}}
+        </ion-item>
+    </ion-list>
+
+</ion-content>

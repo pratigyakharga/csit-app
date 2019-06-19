@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Semester} from "../../models/Semester";
 import {Subject} from "../../models/Subject";
+import {Parse} from 'parse';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @IonicPage()
 @Component({
@@ -13,10 +15,15 @@ export class SearchPage {
 
   semesters: Semester[];
   selectedSemester: Semester;
-  selectedSubject: Subject;
+  selectedSubject: any;
   subjects: Subject[];
+  term: string = 'Mid';
+  year: string = '2019';
+  Question: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private iab: InAppBrowser) {
+
+    this.Question = Parse.Object.extend('Questions');
 
     let firstSem = new Semester("First");
     firstSem.subjects = [
@@ -94,14 +101,30 @@ export class SearchPage {
       eighthSem,
     ];
 
+    // auto populators
+    this.selectedSemester = firstSem;
+    this.selectedSubject = 'Calculus';
+
   }
   goToDisplayPage(){
-    console.log('search display : ', this.selectedSemester, this.selectedSubject, localStorage);
-    if(this.selectedSemester && this.selectedSubject) {
-      localStorage.SELECTED_SUBJECT = this.selectedSubject;
-      localStorage.SELECTED_SEMESTER = this.selectedSemester.name;
-      this.navCtrl.setRoot('QuestionsPage');
-    }
+    console.log('search display : ', this.selectedSemester, this.selectedSubject, this.term, this.year);
+
+    let query = new Parse.Query(this.Question);
+
+    query.equalTo('year', parseInt(this.year));
+    query.equalTo('term', this.term);
+    query.equalTo('subject', this.selectedSubject);
+    query.equalTo('semester', this.selectedSemester.name);
+    query.descending('createdAt');
+
+    query.first().then(res => {
+      console.log(res);
+      this.showPdf(res)
+    })
+    .catch( err => {
+      console.log(err);
+    });
+
   }
 
   ionViewDidLoad() {
@@ -111,5 +134,20 @@ export class SearchPage {
   onSemesterChange(selectedSemester: Semester) {
     console.log('changed to : ',selectedSemester);
     this.selectedSubject = undefined;
+  }
+
+  showPdf (question){
+    let pdfUrl = question.get('pdfUrl');
+    console.log('this is the PDF url : ', pdfUrl);
+    const googleDocLink = 'http://docs.google.com/viewer?url=';
+    this.iab.create(googleDocLink + pdfUrl);
+  }
+
+  goToForumPage (){
+    this.navCtrl.push('ForumPage');
+  }
+
+  gotoOptionsPage (){
+    this.navCtrl.push('OptionsPage');
   }
 }

@@ -20,7 +20,13 @@ export class HomePage {
     Parse.User.logIn(this.username, this.password, {
       success: (response) => {
         console.log(response, 'success');
-        this.navCtrl.push('SearchPage');
+        let role = response.get('role');
+        console.log('the user role is : ', role);
+        if(role === 'admin'){
+          this.navCtrl.setRoot('AdminPortalPage');
+        } else {
+          this.navCtrl.setRoot('SearchPage');
+        }
       },
       error: (err)=> {
         console.log(err, 'error');
