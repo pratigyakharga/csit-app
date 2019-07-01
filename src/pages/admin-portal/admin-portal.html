@@ -45,7 +45,7 @@
     </ion-select>  
   </ion-item>
 
-  <ion-item *ngIf="category != 'Notes'">
+  <ion-item *ngIf="category?.name != 'Notes'">
     <ion-label>Year</ion-label>
     <ion-input [(ngModel)]="year" type="number"></ion-input>
   </ion-item>
