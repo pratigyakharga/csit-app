@@ -22,12 +22,23 @@ export class AdminPortalPage {
   subject: string;
   semester: Semester;
   semesters: Semester[];
-  term: string = 'mid';//mid, unitTest, preBoard, final
+  term: any; //mid, unitTest, preBoard, final
+  terms: any[];
   year: string = '2070';
   pdfChoosen: boolean;
   uploadFile: File;
   Question: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtr: AlertController) {
+
+
+    this.terms = [
+      {name: 'First Term', value: 'firstTerm'},
+      {name: 'Mid Term', value: 'midTerm'},
+      {name: 'Pre Board', value: 'preBoard'},
+      {name: 'Final Term', value: 'final'},
+    ];
+    this.term = this.terms[0];
 
     this.Question = Parse.Object.extend('Questions');
 
@@ -144,7 +155,7 @@ export class AdminPortalPage {
 
     let QuestionData = {
       pdfUrl: url,
-      term: this.term,
+      term: this.term.value,
       subject: this.subject,
       semester: this.semester.name,
       year: parseInt(this.year),

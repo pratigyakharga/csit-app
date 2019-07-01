@@ -31,9 +31,13 @@
     </ion-select>  
   </ion-item>
 
+
+
   <ion-item>
     <ion-label>Term</ion-label>
-    <ion-input [(ngModel)]="term"></ion-input>
+    <ion-select interface="popover" [(ngModel)]="term">
+      <ion-option *ngFor="let term of terms" [value]="term">{{term.name}}</ion-option>
+    </ion-select>  
   </ion-item>
 
   <ion-item>
@@ -55,7 +59,7 @@
 
     year: {{year}}
 
-    term: {{term}}
+    term: {{term.value}}
 
   </p>
   
