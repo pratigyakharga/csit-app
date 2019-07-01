@@ -6,13 +6,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 
 import {Parse} from 'parse';
+import { SearchPage } from '../pages/search/search';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any;
 
   pages: Array<{title: string, component: any, action?: any, backView?: boolean}>;
 
@@ -37,6 +38,12 @@ export class MyApp {
       Parse.initialize("glF2OU2o555Hceg8J3Ml", "lCvBBj7LEOBrKQqX6Qlm");
       Parse.serverURL = "https://csit-app.herokuapp.com/parse";
       console.log(Parse, 'parse');
+      let currentUser = Parse.User.current();
+      if(currentUser){
+        this.rootPage = 'SearchPage';
+      } else {
+        this.rootPage = HomePage;
+      }
     });
   }
 
