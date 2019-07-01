@@ -17,12 +17,18 @@
 
   <ion-item>
     <ion-label>Semester</ion-label>
-    <ion-input [(ngModel)]="semester"></ion-input>
+    <ion-select interface="popover" [(ngModel)]="semester" (ionChange)="onSemesterChange(semester)">
+      <ion-option *ngFor="let sem of semesters" [value]="sem">
+        {{sem.name}}
+      </ion-option>
+    </ion-select>
   </ion-item>
 
   <ion-item>
     <ion-label>Subject</ion-label>
-    <ion-input [(ngModel)]="subject"></ion-input>
+    <ion-select interface="popover" [(ngModel)]="subject">
+      <ion-option *ngFor="let subject of semester.subjects">{{subject.name}}</ion-option>
+    </ion-select>  
   </ion-item>
 
   <ion-item>
@@ -40,6 +46,18 @@
     <br>
     <button round ion-button (click)="uploadPdf()" *ngIf="uploadFile">Upload Question</button>  
   </div>
+
+  <p>
+
+    subject: {{subject}}
+
+    semester: {{semester.name}}
+
+    year: {{year}}
+
+    term: {{term}}
+
+  </p>
   
 </ion-content>
 
