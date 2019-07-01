@@ -6,8 +6,8 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>AdminPortal</ion-title>
+  <ion-navbar color="base">
+    <ion-title>Upload Content - Admin Portal</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -58,7 +58,7 @@
   <div style="text-align: center" padding>
     <input type="file" (change)="choosePdf($event)" accept="application/pdf">
     <br>
-    <button round ion-button (click)="uploadPdf()" *ngIf="uploadFile">Upload Question</button>  
+    <button round ion-button (click)="uploadPdf()" [disabled]="!uploadFile" color="base">Upload Question</button>  
   </div>
 
 </ion-content>
