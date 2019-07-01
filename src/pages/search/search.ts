@@ -148,6 +148,8 @@ export class SearchPage {
   }
 
   gotoOptionsPage (){
+    localStorage.setItem('SELECTED_SEMESTER', this.selectedSemester.name);
+    localStorage.setItem('SELECTED_SUBJECT', this.selectedSubject);
     this.navCtrl.push('OptionsPage');
   }
 }

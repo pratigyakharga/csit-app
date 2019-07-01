@@ -44,8 +44,8 @@ export class QuestionsPage {
     loader.present();
 
     let query = new Parse.Query(this.Question);
-    let selectedSubject = 'Calculus';
-    let selectedSemester = 'First';
+    let selectedSubject = localStorage.getItem('SELECTED_SUBJECT') || 'Calculus';
+    let selectedSemester = localStorage.getItem('SELECTED_SEMESTER') || 'First';
 
     // query.equalTo('year', parseInt(this.year));
     query.equalTo('term', this.term);
