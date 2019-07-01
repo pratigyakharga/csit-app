@@ -170,6 +170,10 @@ export class AdminPortalPage {
       type: 'pdf'
     };
 
+    if (this.category.name === 'Notes'){
+      delete ContentData.year;
+    }
+    
     let Content = Parse.Object.extend(this.category.name);
     let content = new Content();
     content.save(ContentData)
