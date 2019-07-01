@@ -49,6 +49,11 @@
     <ion-label>Year</ion-label>
     <ion-input [(ngModel)]="year" type="number"></ion-input>
   </ion-item>
+
+  <ion-item *ngIf="category?.name == 'Notes'">
+    <ion-label>Title</ion-label>
+    <ion-input [(ngModel)]="title" type="text"></ion-input>
+  </ion-item>
   
   <div style="text-align: center" padding>
     <input type="file" (change)="choosePdf($event)" accept="application/pdf">

@@ -30,6 +30,7 @@ export class AdminPortalPage {
   Question: any;
   categories: any[];
   category: any;
+  title: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtr: AlertController) {
 
@@ -167,11 +168,14 @@ export class AdminPortalPage {
       subject: this.subject,
       semester: this.semester.name,
       year: parseInt(this.year),
+      title: this.title,
       type: 'pdf'
     };
 
     if (this.category.name === 'Notes'){
       delete ContentData.year;
+    } else {
+      delete ContentData.title;
     }
     
     let Content = Parse.Object.extend(this.category.name);

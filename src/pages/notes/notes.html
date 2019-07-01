@@ -35,7 +35,7 @@
 <ion-list>
   <ion-item *ngFor="let q of notes" (click)=showPdf(q)>
       <ion-icon name="arrow-forward" item-end></ion-icon>
-      {{q.subject}}
+      {{q.subject + ' - '+ q.title}}
   </ion-item>
 </ion-list>
 
