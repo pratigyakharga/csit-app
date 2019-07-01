@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {NavController, AlertController} from 'ionic-angular';
-import {Parse} from 'parse';
+import { NavController, AlertController } from 'ionic-angular';
+import { Parse } from 'parse';
 
 @Component({
   selector: 'page-home',
@@ -16,19 +16,57 @@ export class HomePage {
     this.password = "admin123";
   }
 
-  goToMainPage(){
+  forgotPassword() {
+    console.log('hello, forgot password');
+
+    const prompt = this.alertCtrl.create({
+      title: 'Reset password',
+      message: "Enter your email address",
+      inputs: [
+        {
+          name: 'email',
+          placeholder: 'Email'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Reset',
+          handler: data => {
+            console.log('Reset clicked', data);
+            let email = data.email;
+            Parse.User.requestPasswordReset(email)
+              .then(() => {
+                console.log('reset success');
+              })
+              .catch(() => {
+                console.log('reset error');
+              });
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
+
+  goToMainPage() {
     Parse.User.logIn(this.username, this.password, {
       success: (response) => {
         console.log(response, 'success');
         let role = response.get('role');
         console.log('the user role is : ', role);
-        if(role === 'admin'){
+        if (role === 'admin') {
           this.navCtrl.setRoot('AdminPortalPage');
         } else {
           this.navCtrl.setRoot('SearchPage');
         }
       },
-      error: (err)=> {
+      error: (err) => {
         console.log(err, 'error');
         this.showLoginError();
       }
