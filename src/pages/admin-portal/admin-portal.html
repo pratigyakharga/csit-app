@@ -31,12 +31,17 @@
     </ion-select>  
   </ion-item>
 
-
-
   <ion-item>
     <ion-label>Term</ion-label>
     <ion-select interface="popover" [(ngModel)]="term">
       <ion-option *ngFor="let term of terms" [value]="term">{{term.name}}</ion-option>
+    </ion-select>  
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Category</ion-label>
+    <ion-select interface="popover" [(ngModel)]="category">
+      <ion-option *ngFor="let cat of categories" [value]="category">{{cat.name}}</ion-option>
     </ion-select>  
   </ion-item>
 
@@ -50,6 +55,5 @@
     <br>
     <button round ion-button (click)="uploadPdf()" *ngIf="uploadFile">Upload Question</button>  
   </div>
-  
-</ion-content>
 
+</ion-content>

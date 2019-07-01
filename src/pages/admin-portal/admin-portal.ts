@@ -28,9 +28,17 @@ export class AdminPortalPage {
   pdfChoosen: boolean;
   uploadFile: File;
   Question: any;
+  categories: any[];
+  category: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtr: AlertController) {
 
+    this.categories = [
+      {name: 'Questions', value: 'Questions'},
+      {name: 'Solutions', value: 'Solutions'},
+      {name: 'Notes', value: 'Notes'},
+    ];
+    this.category = this.categories[0];
 
     this.terms = [
       {name: 'First Term', value: 'firstTerm'},
