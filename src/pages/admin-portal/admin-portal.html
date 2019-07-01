@@ -41,11 +41,11 @@
   <ion-item>
     <ion-label>Category</ion-label>
     <ion-select interface="popover" [(ngModel)]="category">
-      <ion-option *ngFor="let cat of categories" [value]="category">{{cat.name}}</ion-option>
+      <ion-option *ngFor="let category of categories" [value]="category">{{category.name}}</ion-option>
     </ion-select>  
   </ion-item>
 
-  <ion-item>
+  <ion-item *ngIf="category != 'Notes'">
     <ion-label>Year</ion-label>
     <ion-input [(ngModel)]="year" type="number"></ion-input>
   </ion-item>

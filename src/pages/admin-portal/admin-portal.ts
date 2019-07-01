@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {Parse} from 'parse';
-import {AlertController} from 'ionic-angular';
-import {Semester} from "../../models/Semester";
-import {Subject} from "../../models/Subject";
+import { Parse } from 'parse';
+import { AlertController } from 'ionic-angular';
+import { Semester } from "../../models/Semester";
+import { Subject } from "../../models/Subject";
 
 /**
  * Generated class for the AdminPortalPage page.
@@ -34,17 +34,17 @@ export class AdminPortalPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtr: AlertController) {
 
     this.categories = [
-      {name: 'Questions', value: 'Questions'},
-      {name: 'Solutions', value: 'Solutions'},
-      {name: 'Notes', value: 'Notes'},
+      { name: 'Questions', value: 'Questions' },
+      { name: 'Solutions', value: 'Solutions' },
+      { name: 'Notes', value: 'Notes' },
     ];
     this.category = this.categories[0];
 
     this.terms = [
-      {name: 'First Term', value: 'firstTerm'},
-      {name: 'Mid Term', value: 'midTerm'},
-      {name: 'Pre Board', value: 'preBoard'},
-      {name: 'Final Term', value: 'final'},
+      { name: 'First Term', value: 'firstTerm' },
+      { name: 'Mid Term', value: 'midTerm' },
+      { name: 'Pre Board', value: 'preBoard' },
+      { name: 'Final Term', value: 'final' },
     ];
     this.term = this.terms[0];
 
@@ -136,32 +136,32 @@ export class AdminPortalPage {
     console.log('ionViewDidLoad AdminPortalPage');
   }
 
-  choosePdf(event){
+  choosePdf(event) {
     console.log('will choose PDF', event);
     let file = event.target.files[0];
     console.log(file);
     this.uploadFile = file;
   }
 
-  uploadPdf(){
+  uploadPdf() {
     console.log('will upload pdf');
     let parseFile = new Parse.File('myFile', this.uploadFile);
     parseFile
-    .save()
-    .then((saved)=> {
-      console.log(' saved ',saved);
+      .save()
+      .then((saved) => {
+        console.log(' saved ', saved);
 
-      this.saveQuestion(saved._url);
+        this.saveContent(saved._url);
 
-    })
-    .catch((err)=> {
-      console.log('error : ', err);
-    });
+      })
+      .catch((err) => {
+        console.log('error : ', err);
+      });
   }
 
-  saveQuestion(url){
+  saveContent(url) {
 
-    let QuestionData = {
+    let ContentData = {
       pdfUrl: url,
       term: this.term.value,
       subject: this.subject,
@@ -169,32 +169,38 @@ export class AdminPortalPage {
       year: parseInt(this.year),
       type: 'pdf'
     };
-    
-    let Question = Parse.Object.extend('Questions');
-    let question = new Question();
-    question.save(QuestionData)
-    .then((savedQuestion)=> {
-      console.log('saved question: ', savedQuestion);
-      this.showSuccessDialog();
-    })
-    .catch(err => {
-      console.log('save error in question');
-    });
+
+    let Content = Parse.Object.extend(this.category.name);
+    let content = new Content();
+    content.save(ContentData)
+      .then((savedContent) => {
+        console.log('saved content: ', savedContent);
+        this.showSuccessDialog();
+      })
+      .catch(err => {
+        console.log('save error in content');
+      });
 
   }
 
-  showSuccessDialog(){
+  showSuccessDialog() {
+
     let alert = this.alertCtr.create({
       title: 'Success',
-      subTitle: 'Question upload successfully!',
+      subTitle: 'Content upload successfully!',
       buttons: ['Ok']
     });
+
     alert.present();
   }
 
   onSemesterChange(selectedSemester: Semester) {
-    console.log('changed to : ',selectedSemester);
-    this.subject = undefined;
+    console.log('changed to : ', selectedSemester);
+    try {
+      this.subject = selectedSemester.subjects[0].name;
+    } catch (err) {
+      this.subject = undefined;
+    }
   }
 
 }
