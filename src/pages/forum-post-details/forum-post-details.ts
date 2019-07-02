@@ -20,9 +20,11 @@ export class ForumPostDetailsPage {
   comments: any;
   newComment: string;
   likes: number;
+  postImageUrl: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.postId = this.navParams.data.objectId;
+    this.postImageUrl = 'https://ionicframework.com/docs/demos/api/card/madison.jpg';
     console.log(this.postId);
   }
 
