@@ -39,13 +39,10 @@ export class MyApp {
       Parse.serverURL = "https://csit-app.herokuapp.com/parse";
       console.log(Parse, 'parse');
       let currentUser = Parse.User.current();
-      
       this.rootPage = HomePage;
-      
-      // if(currentUser){
-      //   this.rootPage = 'SearchPage';
-      // }
-
+      if(currentUser){
+        this.rootPage = 'SearchPage';
+      }
     });
   }
 

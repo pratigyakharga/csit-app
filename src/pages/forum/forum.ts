@@ -15,6 +15,7 @@ import { Parse } from 'parse';
   selector: 'page-forum',
   templateUrl: 'forum.html',
 })
+
 export class ForumPage {
 
   posts: any[];
