@@ -11,7 +11,6 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
   templateUrl: 'search.html',
 })
 export class SearchPage {
-  gotoDisplayPage(){}
 
   semesters: Semester[];
   selectedSemester: Semester;
@@ -104,26 +103,6 @@ export class SearchPage {
     // auto populators
     this.selectedSemester = firstSem;
     this.selectedSubject = 'Calculus';
-
-  }
-  goToDisplayPage(){
-    console.log('search display : ', this.selectedSemester, this.selectedSubject, this.term, this.year);
-
-    let query = new Parse.Query(this.Question);
-
-    query.equalTo('year', parseInt(this.year));
-    query.equalTo('term', this.term);
-    query.equalTo('subject', this.selectedSubject);
-    query.equalTo('semester', this.selectedSemester.name);
-    query.descending('createdAt');
-
-    query.first().then(res => {
-      console.log(res);
-      this.showPdf(res)
-    })
-    .catch( err => {
-      console.log(err);
-    });
 
   }
 
