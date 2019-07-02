@@ -33,9 +33,12 @@
       <ion-label stacked>Description</ion-label>
       <ion-textarea [(ngModel)]="content"></ion-textarea>
     </ion-item>
-    <br>
 
-    <button ion-button block round color="base" (click)="createAPost()">Create</button>
+    <div style="text-align: center" padding>
+      <input type="file" (change)="chooseImage($event)" accept="image/*">
+      <br>
+      <button ion-button block round color="base" (click)="savePost()">Create</button>
+    </div>
 
   </ion-list>
 

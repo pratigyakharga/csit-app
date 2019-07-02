@@ -18,6 +18,7 @@ export class NewForumPostModalPage {
 
   title: string = 'hello';
   content: string = 'world';
+  uploadFile: any;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
@@ -30,7 +31,7 @@ export class NewForumPostModalPage {
     this.viewCtrl.dismiss();
   }
 
-  createAPost() {
+  createAPost(url) {
     const ForumPost = Parse.Object.extend('ForumPost');
     let forumPost = new ForumPost();
 
@@ -42,7 +43,8 @@ export class NewForumPostModalPage {
         .save({
           title: this.title,
           content: this.content,
-          author: username
+          author: username,
+          postImageUrl: url
         })
         .then(savedPost => {
           console.log(savedPost, 'saved post');
@@ -55,6 +57,27 @@ export class NewForumPostModalPage {
       console.log('cannot find username : ', err);
     }
 
+  }
+
+  chooseImage(event) {
+    console.log('will choose PDF', event);
+    let file = event.target.files[0];
+    console.log(file);
+    this.uploadFile = file;
+  }
+
+  savePost() {
+    console.log('will upload pdf');
+    let parseFile = new Parse.File('myFile', this.uploadFile);
+    parseFile
+      .save()
+      .then((saved) => {
+        console.log(' saved ', saved);
+        this.createAPost(saved._url);
+      })
+      .catch((err) => {
+        console.log('error : ', err);
+      });
   }
 
 }
