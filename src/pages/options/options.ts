@@ -38,6 +38,4 @@ export class OptionsPage {
     this.navCtrl.push('ForumPage');
   }
 
-  
-
 }

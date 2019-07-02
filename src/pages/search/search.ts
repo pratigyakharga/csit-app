@@ -112,7 +112,11 @@ export class SearchPage {
 
   onSemesterChange(selectedSemester: Semester) {
     console.log('changed to : ',selectedSemester);
-    this.selectedSubject = undefined;
+    try {
+      this.selectedSubject = this.selectedSemester.subjects[0].name;
+    } catch (err) {
+      this.selectedSemester = undefined;
+    }
   }
 
   showPdf (question){
@@ -120,10 +124,6 @@ export class SearchPage {
     console.log('this is the PDF url : ', pdfUrl);
     const googleDocLink = 'http://docs.google.com/viewer?url=';
     this.iab.create(googleDocLink + pdfUrl);
-  }
-
-  goToForumPage (){
-    this.navCtrl.push('ForumPage');
   }
 
   gotoOptionsPage (){

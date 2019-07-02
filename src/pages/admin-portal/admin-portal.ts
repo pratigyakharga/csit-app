@@ -25,7 +25,6 @@ export class AdminPortalPage {
   term: any; //mid, unitTest, preBoard, final
   terms: any[];
   year: string = '2070';
-  pdfChoosen: boolean;
   uploadFile: File;
   Question: any;
   categories: any[];
@@ -177,7 +176,7 @@ export class AdminPortalPage {
     } else {
       delete ContentData.title;
     }
-    
+
     let Content = Parse.Object.extend(this.category.name);
     let content = new Content();
     content.save(ContentData)
