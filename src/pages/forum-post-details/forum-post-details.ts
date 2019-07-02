@@ -40,6 +40,7 @@ export class ForumPostDetailsPage {
     query.get(this.postId)
       .then(post => {
         this.post = post.toJSON();
+        this.post.postImageUrl = (this.post.postImageUrl || '').replace(/^http:\/\//i, 'https://');
         this.likes = this.post.likeCount;
       });
   }
