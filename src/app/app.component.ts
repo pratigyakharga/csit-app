@@ -15,21 +15,21 @@ export class MyApp {
 
   rootPage: any;
 
-  pages: Array<{ title: string, component: any, action?: any, backView?: boolean }>;
+  pages: Array<{ title: string, component: any, action?: any, backView?: boolean, icon: string }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      {title: 'My Profile', component: 'ProfilePage', backView: true},
-      {title: 'Colleges', component: 'CollegesPage', backView: true},
-      {title: 'Syllabus', component: 'SyllabusPage', backView: true},
-      {title: 'News', component: 'NewsPage', backView: true},
-      {title: 'Events', component: 'EventsPage', backView: true},
-      {title: 'Invite Friends', component: 'InviteFriendsPage', backView: true},
-      {title: 'Like Us', component: 'LikeUsPage', backView: true},
-      {title: 'Logout', component: HomePage}
+      {icon: 'person', title: 'My Profile', component: 'ProfilePage', backView: true},
+      {icon: 'apps', title: 'Colleges', component: 'CollegesPage', backView: true},
+      {icon: 'copy', title: 'Syllabus', component: 'SyllabusPage', backView: true},
+      {icon: 'book', title: 'News', component: 'NewsPage', backView: true},
+      {icon: 'people', title: 'Events', component: 'EventsPage', backView: true},
+      {icon: 'person-add', title: 'Invite Friends', component: 'InviteFriendsPage', backView: true},
+      {icon: 'thumbs-up', title: 'Like Us', component: 'LikeUsPage', backView: true},
+      {icon: 'log-out', title: 'Logout', component: HomePage}
     ];
 
   }
