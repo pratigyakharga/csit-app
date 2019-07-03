@@ -1,11 +1,12 @@
-import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import {Component, ViewChild} from '@angular/core';
+import {Nav, Platform} from 'ionic-angular';
+import {StatusBar} from '@ionic-native/status-bar';
+import {SplashScreen} from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
+import {HomePage} from '../pages/home/home';
 
 import {Parse} from 'parse';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -14,21 +15,21 @@ export class MyApp {
 
   rootPage: any;
 
-  pages: Array<{title: string, component: any, action?: any, backView?: boolean}>;
+  pages: Array<{ title: string, component: any, action?: any, backView?: boolean }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      {title: 'My Profile', component: 'ProfilePage'},
-      {title: 'Colleges', component: 'CollegesPage'},
-      {title: 'Syllabus', component: 'SyllabusPage'},
-      {title: 'News', component: 'NewsPage'},
-      {title: 'Events', component: 'EventsPage'},
-      {title: 'Invite Friends', component: 'InviteFriendsPage'},
-      {title: 'Like Us', component: 'LikeUsPage'},
-      { title: 'Logout', component: HomePage}
+      {title: 'My Profile', component: 'ProfilePage', backView: true},
+      {title: 'Colleges', component: 'CollegesPage', backView: true},
+      {title: 'Syllabus', component: 'SyllabusPage', backView: true},
+      {title: 'News', component: 'NewsPage', backView: true},
+      {title: 'Events', component: 'EventsPage', backView: true},
+      {title: 'Invite Friends', component: 'InviteFriendsPage', backView: true},
+      {title: 'Like Us', component: 'LikeUsPage', backView: true},
+      {title: 'Logout', component: HomePage}
     ];
 
   }
@@ -44,7 +45,7 @@ export class MyApp {
       console.log(Parse, 'parse');
       let currentUser = Parse.User.current();
       this.rootPage = HomePage;
-      if(currentUser){
+      if (currentUser) {
         this.rootPage = 'SearchPage';
       }
     });
@@ -53,16 +54,16 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    if(page.backView){
+    if (page.backView) {
       this.nav.push(page.component);
     } else {
-    this.nav.setRoot(page.component, {}, {}, ()=> {
-        Parse.User.logOut().then(()=> {
+      this.nav.setRoot(page.component, {}, {}, () => {
+        Parse.User.logOut().then(() => {
           console.log('user logged out');
-        }).catch(()=> {
+        }).catch(() => {
           console.log('user logout fail');
         });
       });
-  }
+    }
   }
 }
